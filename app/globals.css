@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-border:       #535353;   /* Boarder color */
+  --color-gray-text:    #ACACAC;   /* gray text color */
+  --color-header-bar:   #0D0D0D;   /* header bar color */
+  --color-green-border: #3DDB6A;   /* green boarder */
+  --color-green-text:   #3DDB6A;   /* Green Text Color */
+  --color-text-black:   #0A0A0A;   /* text black */
+  --color-text-white:   #F4F4F4;   /* text white */
+
+  --font-archivo-black: 'Archivo Black', sans-serif;
+  --font-heading: 'Archivo Black', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+  }
+}
+
+@layer utilities {
+  .bg-btn-gradient {
+    background: linear-gradient(90deg, 
+      #318F43 0%, 
+      #6CC74E 50%, 
+      #B4BA7A 67%, 
+      #DA909D 84%
+    );
+  }
+
+  .gradient-bg {
+    background: linear-gradient(90deg,
+    #0D3214 0%,
+    #6CC74E 50%,
+    #B4BA7A 67%,
+    #F472B5 84%
+    );
+  }
+
+  .text-btn-gradient {
+    background: linear-gradient(90deg, 
+      #318F43 0%, 
+      #6CC74E 50%, 
+      #B4BA7A 67%, 
+      #DA909D 84%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
