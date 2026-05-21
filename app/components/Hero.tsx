@@ -13,18 +13,22 @@ const Hero = () => {
 
   return (
     <div
-      className="relative h-[1084px] w-full bg-[#0d0d0d] overflow-hidden text-white px-10 py-10 flex flex-col"
-      style={{ backgroundImage: "url('/CTA.png')" }}
+      className="relative h-[1084px] w-full text-white p-[76px] flex flex-col"
+      style={{
+        backgroundImage: "url('/CTA.png')",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
     >
       {/* Tag pill */}
-      <div className="mb-2">
-        <SDG />
-      </div>
+      
 
       {/* Main content row */}
-      <div className="flex flex-1 items-end justify-between">
+      <div className="flex justify-between">
         {/* Left: headline + description + buttons */}
-        <div className="flex flex-col gap-7 max-w-[480px]">
+        <div className="flex flex-col gap-[20px] max-w-[480px]">
+          
+          <SDG />
           {/* Headline */}
           <h1 className="text-[125px] leading-[1.0] font-archivo-black tracking-tight">
             <span className="text-white">We Speak Code.We </span>
@@ -69,7 +73,7 @@ const Hero = () => {
         </div>
 
         {/* Right: floating pill buttons */}
-        <div className="flex flex-col items-end gap-3 pb-1">
+        <div className="flex flex-col justify-end gap-3 pb-1">
           {CTAButtons.map((label, index) => (
             <button
               key={index}
