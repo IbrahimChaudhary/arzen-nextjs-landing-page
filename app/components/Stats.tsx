@@ -7,28 +7,29 @@ const stats = [
 
 const Stats = () => {
   return (
-    <div className="bg-[#111111] p-20 ">
-      <div className="border border-white/10 h-[140px] rounded-2xl bg-[#141414] flex items-stretch">
-        {/* Left end cap */}
-        <div className="w-14 flex-shrink-0 bg-[#2F2F2F] rounded-l-2xl border-r border-white/10" />
+    <div className="bg-[#111111] p-20">
+      <div className="h-[140px] rounded-2xl bg-[#141414] border border-white/10 flex overflow-hidden">
+        
+        {/* Left cap */}
+        <div className="w-14 flex-shrink-0 bg-[#2F2F2F]" />
 
         {/* Stats */}
-        {stats.map((s, i) => (
-          <div
-            key={i}
-            className={`flex-1 flex flex-col items-center justify-center gap-1 py-6 ${
-              i !== stats.length - 1 ? "border-r border-white/10" : ""
-            }`}
-          >
-            <span className="font-heading text-btn-gradient text-[40px]">
-              {s.value}
-            </span>
-            <span className="text-xs text-white/50">{s.label}</span>
-          </div>
-        ))}
+        <div className="flex flex-1 divide-x divide-white/10">
+          {stats.map((s, i) => (
+            <div
+              key={i}
+              className="flex-1 flex flex-col items-center justify-center gap-1"
+            >
+              <span className="font-heading text-btn-gradient text-[40px]">
+                {s.value}
+              </span>
+              <span className="text-xs text-white/50">{s.label}</span>
+            </div>
+          ))}
+        </div>
 
-        {/* Right end cap */}
-        <div className="w-14 flex-shrink-0 bg-[#2F2F2F] rounded-r-2xl border-l border-white/10" />
+        {/* Right cap */}
+        <div className="w-14 flex-shrink-0 bg-[#2F2F2F]" />
       </div>
     </div>
   );

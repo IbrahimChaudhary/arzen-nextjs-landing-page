@@ -43,7 +43,7 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex items-center gap-3">
-            <button className="px-5 py-2.5 bg-btn-gradient rounded-full border border-[#6abf3f] text-black text-sm font-medium hover:bg-[#6abf3f] hover:text-black transition-all duration-200">
+            <button className="px-5 py-2.5 bg-btn-gradient rounded-full text-black text-sm font-medium hover:bg-[#6abf3f] hover:text-black transition-all duration-200">
               Start a Project
             </button>
             <button className="px-5 py-2.5 rounded-full border border-white/25 text-white/80 text-sm font-medium hover:border-white/60 hover:text-white transition-all duration-200">
@@ -73,11 +73,11 @@ const Hero = () => {
         </div>
 
         {/* Right: floating pill buttons */}
-        <div className="flex flex-col justify-end gap-3 pb-1">
+        <div className="flex flex-col justify-end gap-[15px] pb-1">
           {CTAButtons.map((label, index) => (
             <button
               key={index}
-              className="rounded-full border border-white/20 px-6 py-3 text-sm text-white/70 hover:border-white/50 hover:text-white transition-all duration-200 whitespace-nowrap min-w-[140px] text-center"
+              className="rounded-full bg-[#1E181C] border border-white/20 px-6 py-3 text-sm text-white/70 hover:border-white/50 hover:text-white transition-all duration-200 whitespace-nowrap min-w-[140px] text-center"
             >
               {label}
             </button>

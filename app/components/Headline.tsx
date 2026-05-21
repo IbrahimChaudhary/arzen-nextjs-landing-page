@@ -10,34 +10,54 @@ const items = [
 ];
 
 const Headline = () => {
-  // Duplicate for seamless loop
-  const repeated = [...items, ...items];
-
   return (
-    <div className="w-full text-gray-text bg-[#111] border-y border-white/10 overflow-hidden py-3 select-none">
+    <div className="w-full overflow-hidden bg-[#111] border-y border-white/10 py-3 select-none">
       <style>{`
         @keyframes marquee {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
         }
+
         .marquee-track {
           display: flex;
           width: max-content;
-          animation: marquee 22s linear infinite;
+          animation: marquee 20s linear infinite;
+          will-change: transform;
         }
+
         .marquee-track:hover {
           animation-play-state: paused;
         }
       `}</style>
 
       <div className="marquee-track">
-        {repeated.map((label, i) => (
-          <span key={i} className="flex items-center gap-4 px-4">
-            <span className="text-sm font-medium text-white/80 whitespace-nowrap tracking-wide">
+        {/* Original */}
+        {items.map((label, i) => (
+          <div
+            key={`first-${i}`}
+            className="flex items-center px-6 shrink-0"
+          >
+            <span className="text-sm font-medium tracking-wide whitespace-nowrap text-white/80">
               {label}
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#6abf3f] flex-shrink-0" />
-          </span>
+          </div>
+        ))}
+
+        {/* Duplicate */}
+        {items.map((label, i) => (
+          <div
+            key={`second-${i}`}
+            className="flex items-center px-6 shrink-0"
+            aria-hidden="true"
+          >
+            <span className="text-sm font-medium tracking-wide whitespace-nowrap text-white/80">
+              {label}
+            </span>
+          </div>
         ))}
       </div>
     </div>

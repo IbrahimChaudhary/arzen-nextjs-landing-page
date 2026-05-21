@@ -1,16 +1,15 @@
 import SDG from "./ui/SDG";
 
 const contactInfo = [
-  { label: "Email",    value: "hello@arzen.com" },
-  { label: "Phone",    value: "+1 (234) 567-8900" },
+  { label: "Email", value: "hello@arzen.com" },
+  { label: "Phone", value: "+1 (234) 567-8900" },
   { label: "Location", value: "Remote · Worldwide" },
 ];
 
 const Contact = () => {
   return (
     <div className="bg-[#111111] text-white p-20">
-      <div className="flex gap-16">
-
+      <div className="flex gap-[123px]">
         {/* Left */}
         <div className="flex flex-col gap-[15px] max-w-[340px]">
           <SDG title="Get In Touch" />
@@ -18,13 +17,17 @@ const Contact = () => {
             Let's Start a Conversation
           </h2>
           <p className="text-[12px] text-white/50 leading-relaxed">
-            We're here to answer your questions and explore how we can help your business grow.
+            We're here to answer your questions and explore how we can help your
+            business grow.
           </p>
 
           {/* Contact info */}
           <div className="flex flex-col gap-[5px]">
             {contactInfo.map((item) => (
-              <div key={item.label} className="flex items-center gap-3 pb-4 border-b border-white/10">
+              <div
+                key={item.label}
+                className="flex items-center gap-3 pb-4 border-b border-white/10"
+              >
                 <div className="w-8 h-8 rounded-md bg-[#1e1e1e] border border-white/10 flex-shrink-0" />
                 <div>
                   <p className="text-xs text-white/40">{item.label}</p>
@@ -85,7 +88,6 @@ const Contact = () => {
             Send Message
           </button>
         </div>
-
       </div>
     </div>
   );
