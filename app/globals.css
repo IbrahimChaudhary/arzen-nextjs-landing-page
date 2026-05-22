@@ -24,21 +24,23 @@
 }
 
 @layer utilities {
-  .bg-btn-gradient {
-    background: linear-gradient(90deg, 
-      #318F43 0%, 
-      #6CC74E 50%, 
-      #B4BA7A 67%, 
-      #DA909D 84%
-    );
-  }
-
-  .gradient-bg {
-    background: linear-gradient(90deg,
-    #0D3214 0%,
+.bg-btn-gradient {
+  background: linear-gradient(
+    90deg,
+    #318F43 0%,
     #6CC74E 50%,
     #B4BA7A 67%,
-    #F472B5 84%
+    #DA909D 84%
+  );
+}
+
+  .gradient-bg {
+    background: linear-gradient(
+      125deg,
+      #0D3214 0%,
+      rgba(108, 199, 78, 0.30) 50%,
+      rgba(180, 186, 122, 0.10) 67%,
+      rgba(244, 114, 181, 0.26) 84%
     );
   }
 

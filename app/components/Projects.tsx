@@ -79,7 +79,10 @@ const Projects = () => {
           "
         >
           <div className="flex flex-col gap-5 relative z-10">
-            <SDG title="Let's Work Together" classes="bg-[#0E1911] border-none" />
+            <SDG
+              title="Let's Work Together"
+              classes="bg-[#0E1911] border-none"
+            />
 
             <div className="font-heading leading-[0.95] tracking-[-0.04em]">
               <h3 className="text-[34px] md:text-[52px]">
@@ -92,9 +95,8 @@ const Projects = () => {
             </div>
 
             <p className="max-w-[480px] text-sm leading-[24px] text-white/50">
-              High-performance websites and web applications
-              that are fast, secure and scalable. Built with
-              modern tech stacks.
+              High-performance websites and web applications that are fast,
+              secure and scalable. Built with modern tech stacks.
             </p>
 
             <button
@@ -151,11 +153,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       <div
         className={`
           ${project.bg}
-          ${
-            project.size === "large"
-              ? "h-[258px]"
-              : "h-[258px]"
-          }
+          ${project.size === "large" ? "h-[258px]" : "h-[258px]"}
           flex items-center justify-center
           relative overflow-hidden
         `}
@@ -167,11 +165,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             tracking-[-0.05em]
             transition-transform duration-500
             group-hover:scale-105
-            ${
-              project.size === "large"
-                ? "text-[74px]"
-                : "text-[52px]"
-            }
+            ${project.size === "large" ? "text-[74px]" : "text-[52px]"}
           `}
         >
           {project.logo}
