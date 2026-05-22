@@ -1,4 +1,5 @@
 import SDG from "./ui/SDG";
+import FadeIn from "./aminations/FadeIn";
 
 const Hero = () => {
   const CTAButtons = [
@@ -21,28 +22,29 @@ const Hero = () => {
       }}
     >
       {/* Tag pill */}
-      
 
       {/* Main content row */}
       <div className="flex justify-between">
         {/* Left: headline + description + buttons */}
-        <div className="flex flex-col gap-[20px] max-w-[480px]">
-          
+        <div className="flex flex-col max-w-[480px]">
           <SDG />
+          <div className="mb-[30px]"></div>
           {/* Headline */}
-          <h1 className="text-[125px] leading-[1.0] font-archivo-black tracking-tight">
-            <span className="text-white">We Speak Code.We </span>
-            <span className="text-btn-gradient">Deliver Growth.</span>
+          <h1 className="text-[125px] leading-[1.0] font-archivo-black tracking-tight mb-[20px]">
+            <FadeIn delay={0.1} direction="up">
+              <span className="text-white">We Speak Code.We </span>
+              <span className="text-btn-gradient">Deliver Growth.</span>
+            </FadeIn>
           </h1>
 
           {/* Description */}
-          <p className="text-sm text-white/65 leading-relaxed max-w-[360px]">
+          <p className="text-sm text-white/65 leading-relaxed max-w-[360px] mb-[40px]">
             Arzen Inc is a software house crafting digital products, brands and
             experiences that drive real business impact.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 mb-[40px]">
             <button className="px-5 py-2.5 bg-btn-gradient rounded-full text-black text-sm font-medium hover:bg-[#6abf3f] hover:text-black transition-all duration-200">
               Start a Project
             </button>

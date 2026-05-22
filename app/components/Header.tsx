@@ -6,16 +6,16 @@ const Header = () => {
       <Image src="/logo.png" alt="logo" width={100} height={40} />
       <div className="flex gap-[30px] items-center">
         <ul className="flex gap-[30px] text-sm text-white/80">
-          <li className="cursor-pointer hover:text-white transition-colors">
+          <li className="nav-link cursor-pointer hover:text-white transition-colors">
             Service
           </li>
-          <li className="cursor-pointer hover:text-white transition-colors">
+          <li className="nav-link cursor-pointer hover:text-white transition-colors">
             Work
           </li>
-          <li className="cursor-pointer hover:text-white transition-colors">
+          <li className="nav-link cursor-pointer hover:text-white transition-colors">
             About
           </li>
-          <li className="cursor-pointer hover:text-white transition-colors">
+          <li className="nav-link cursor-pointer hover:text-white transition-colors">
             Contact
           </li>
         </ul>

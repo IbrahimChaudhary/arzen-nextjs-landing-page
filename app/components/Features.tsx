@@ -28,8 +28,8 @@ const Services = () => {
     <div className="bg-[#0d0d0d] text-white py-[104px] px-[200px] flex flex-col gap-[38px]">
       {/* Top */}
         <SDG />
-        <div className="flex items-end justify-between gap-">
-          <h2 className="font-archivo-black text-[53px] leading-tight max-w-[500px]">
+        <div className="flex items-end justify-between gap-[188px]">
+          <h2 className="font-archivo-black text-[53px] leading-tight">
             End-to-end
             <br />
             Digital Solutions
