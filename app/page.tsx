@@ -1,23 +1,25 @@
-import Contact from "./components/Contact";
-import Features from "./components/Features";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header  from "./components/Header";
+import Hero     from "./components/Hero";
 import Headline from "./components/Headline";
-import Hero from "./components/Hero";
+import Features from "./components/Features";
+import Stats    from "./components/Stats";
 import Projects from "./components/Projects";
-import Stats from "./components/Stats";
+import Contact  from "./components/Contact";
+import Footer   from "./components/Footer";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Header />
-      <Hero />
-      <Headline />
-      <Features />
-      <Stats />
-      <Projects />
-      <Contact />
+      <main>
+        <Hero />
+        <Headline />
+        <Features />
+        <Stats />
+        <Projects />
+        <Contact />
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }

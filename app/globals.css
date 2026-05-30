@@ -1,43 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap");
 
 @import "tailwindcss";
 
+/* ── Design tokens ───────────────────────────────────────────────────── */
 @theme {
-  --color-border:       #535353;   /* Boarder color */
-  --color-gray-text:    #ACACAC;   /* gray text color */
-  --color-header-bar:   #0D0D0D;   /* header bar color */
-  --color-green-border: #3DDB6A;   /* green boarder */
-  --color-green-text:   #3DDB6A;   /* Green Text Color */
-  --color-text-black:   #0A0A0A;   /* text black */
-  --color-text-white:   #F4F4F4;   /* text white */
+  --color-border:       #535353;
+  --color-gray-text:    #acacac;
+  --color-header-bar:   #0d0d0d;
+  --color-green-border: #3ddb6a;
+  --color-green-text:   #3ddb6a;
+  --color-text-black:   #0a0a0a;
+  --color-text-white:   #f4f4f4;
 
-  --font-archivo-black: 'Archivo Black', sans-serif;
-  --font-heading: 'Archivo Black', sans-serif;
-  --font-body:    'DM Sans', sans-serif;
+  --font-archivo-black: "Archivo Black", sans-serif;
+  --font-heading:       "Archivo Black", sans-serif;
+  --font-body:          "DM Sans", sans-serif;
 }
 
+/* ── Base ────────────────────────────────────────────────────────────── */
 @layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
   body {
     font-family: var(--font-body);
+    background-color: #0d0d0d;
+    color: #f4f4f4;
+    /* prevent horizontal overflow caused by fixed-width elements */
+    overflow-x: hidden;
   }
 }
 
+/* ── Gradient utilities ──────────────────────────────────────────────── */
 @layer utilities {
-.bg-btn-gradient {
-  background: linear-gradient(
-    90deg,
-    #318F43 0%,
-    #6CC74E 50%,
-    #B4BA7A 67%,
-    #DA909D 84%
-  );
-}
+  .bg-btn-gradient {
+    background: linear-gradient(90deg, #318f43 0%, #6cc74e 50%, #b4ba7a 67%, #da909d 84%);
+  }
 
   .gradient-bg {
     background: linear-gradient(
       125deg,
-      #0D3214 0%,
+      #0d3214 0%,
       rgba(108, 199, 78, 0.30) 50%,
       rgba(180, 186, 122, 0.10) 67%,
       rgba(244, 114, 181, 0.26) 84%
@@ -45,48 +49,34 @@
   }
 
   .text-btn-gradient {
-    background: linear-gradient(90deg, 
-      #318F43 0%, 
-      #6CC74E 50%, 
-      #B4BA7A 67%, 
-      #DA909D 84%
-    );
+    background: linear-gradient(90deg, #318f43 0%, #6cc74e 50%, #b4ba7a 67%, #da909d 84%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 }
 
-.btn-cta {
-  position: relative;
-  overflow: hidden;
+/* ── Component styles ────────────────────────────────────────────────── */
+
+/* Primary button — lift + glow on hover */
+.btn-primary {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.btn-cta::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.12) 50%, transparent 60%);
-  transform: translateX(-100%);
-  transition: transform 0.5s ease;
-}
-.btn-cta:hover::after {
-  transform: translateX(100%);
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(61, 220, 106, 0.25);
 }
 
+/* Shimmer sweep (used on SDG pill + any .btn-shimmer) */
 .btn-shimmer {
   position: relative;
   overflow: hidden;
 }
 .btn-shimmer::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    105deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.12) 50%,
-    transparent 60%
-  );
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.12) 50%, transparent 60%);
   transform: translateX(-100%);
   transition: transform 0.5s ease;
 }
@@ -94,19 +84,20 @@
   transform: translateX(100%);
 }
 
+/* Nav link underline */
 .nav-link {
   position: relative;
+  transition: color 0.2s ease;
 }
+.nav-link:hover { color: #6cc74e; }
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
   width: 0;
   height: 1px;
-  background: #6CC74E;
+  background: #6cc74e;
   transition: width 0.25s ease;
 }
-.nav-link:hover::after {
-  width: 100%;
-}
+.nav-link:hover::after { width: 100%; }
