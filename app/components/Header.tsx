@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import Image from "next/image";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -10,68 +11,70 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-header-bar/80 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 h-14 flex items-center justify-between">
-        {/* Logo */}
+    <header className="absolute inset-x-0 top-0 z-50 border-b border-white/10 bg-header-bar/80 backdrop-blur-md">
+      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 md:px-10">
         <Image
           src="/logo.png"
           alt="Arzen"
-          width={90}
-          height={30}
-          className="h-auto"
+          width={100}
+          height={34}
+          className="w-[84px] md:w-[100px] h-auto"
         />
 
-        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <a
               key={link}
               href={`#${link.toLowerCase()}`}
-              className="nav-link text-sm text-white/60 transition-colors"
+              className="text-sm text-white/60 transition-colors hover:text-white"
             >
               {link}
             </a>
           ))}
         </nav>
 
-        {/* Desktop CTA */}
         <a
           href="#contact"
-          className="hidden md:inline-flex items-center px-5 py-2 rounded-full bg-btn-gradient text-black text-sm font-semibold btn-primary"
+          className="hidden md:inline-flex items-center rounded-full bg-btn-gradient px-5 py-2 text-sm font-semibold text-black"
         >
           Get Started
         </a>
 
-        {/* Mobile hamburger */}
         <button
-          className="md:hidden text-white/70 hover:text-white transition-colors"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
+          className="md:hidden text-white"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle Menu"
         >
-          {open ? <IoCloseOutline size={24} /> : <RxHamburgerMenu size={22} />}
+          {open ? (
+            <IoCloseOutline size={28} />
+          ) : (
+            <RxHamburgerMenu size={22} />
+          )}
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-header-bar border-t border-white/10 px-6 py-6 flex flex-col gap-5">
-          {NAV_LINKS.map((link) => (
+        <div className="md:hidden border-t border-white/10 bg-header-bar px-4 py-6">
+          <div className="flex flex-col gap-5">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link}
+                href={`#${link.toLowerCase()}`}
+                className="text-white/70"
+                onClick={() => setOpen(false)}
+              >
+                {link}
+              </a>
+            ))}
+
             <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
-              className="text-sm text-white/70 hover:text-white transition-colors"
+              href="#contact"
+              className="w-fit rounded-full bg-btn-gradient px-5 py-2 text-sm font-semibold text-black"
               onClick={() => setOpen(false)}
             >
-              {link}
+              Get Started
             </a>
-          ))}
-          <a
-            href="#contact"
-            className="w-fit px-5 py-2 rounded-full bg-btn-gradient text-black text-sm font-semibold"
-            onClick={() => setOpen(false)}
-          >
-            Get Started
-          </a>
+          </div>
         </div>
       )}
     </header>
