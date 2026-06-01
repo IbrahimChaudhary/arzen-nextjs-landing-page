@@ -26,7 +26,7 @@ export default function Footer() {
 
         {/* Brand */}
         <div className="flex flex-col gap-4 max-w-full lg:max-w-[260px]">
-          <Image src="/logo.png" alt="Arzen" width={120} height={40} className="h-auto w-auto" />
+          <Image src="/logo.png" alt="Arzen" width={170} height={25} />
           <p className="text-xs text-white/50 leading-relaxed">
             We're here to answer your questions and explore how we can help your business grow.
           </p>
