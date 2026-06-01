@@ -16,6 +16,7 @@ export default function Hero() {
         backgroundPosition: "center",
       }}
     >
+      <div className="hero-glow"></div>
       <div className="flex-1 flex flex-col justify-center px-6 py-16 md:px-[76px] md:py-20 max-w-7xl mx-auto w-full">
         <div className="flex flex-col md:flex-row md:justify-between gap-12 md:gap-6">
 
