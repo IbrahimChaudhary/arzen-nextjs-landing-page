@@ -119,12 +119,12 @@
   }
 
 .hero-glow {
-    position: absolute;
-    top: -10%;
-    right: -5%;
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(ellipse at center, rgba(61,220,106,0.12) 0%, rgba(244,114,182,0.06) 45%, transparent 70%);
-    pointer-events: none;
-    animation: glowPulse 6s ease-in-out infinite;
+  position: absolute;
+  top: -10%;
+  right: -8%;
+  width: min(700px, 60vw);
+  height: min(700px, 60vw);
+  background: radial-gradient(ellipse at center, rgba(61,220,106,0.12) 0%, rgba(244,114,182,0.06) 45%, transparent 70%);
+  pointer-events: none;
+  animation: glowPulse 6s ease-in-out infinite;
 }
