@@ -35,7 +35,7 @@ export default function Header() {
 
         <a
           href="#contact"
-          className="hidden md:inline-flex items-center rounded-full bg-btn-gradient px-5 py-2 text-sm font-semibold text-black"
+          className="btn-primary hidden md:inline-flex items-center rounded-full bg-btn-gradient px-5 py-2 text-sm font-semibold text-black"
         >
           Get Started
         </a>

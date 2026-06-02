@@ -1,3 +1,4 @@
+import FloatingPills from "./aminations/FloatingPills";
 import SDG from "./ui/SDG";
 import FadeIn from "@/app/components/aminations/FadeIn";
 
@@ -95,11 +96,11 @@ export default function Hero() {
 
             <FadeIn delay={0.3} direction="up">
               <div className="mt-6 flex flex-wrap gap-3">
-                <button className="rounded-full bg-btn-gradient px-5 py-2.5 text-sm font-semibold text-black">
+                <button className="btn-primary rounded-full bg-btn-gradient px-5 py-2.5 text-sm font-semibold text-black">
                   Start a Project
                 </button>
 
-                <button className="rounded-full border border-white/25 px-5 py-2.5 text-sm text-white/80 transition hover:border-white/60 hover:text-white">
+                <button className="btn-primary rounded-full border border-white/25 px-5 py-2.5 text-sm text-white/80 transition hover:border-white/60 hover:text-white">
                   View Our Work
                 </button>
               </div>
@@ -200,6 +201,7 @@ export default function Hero() {
                 </button>
               </FadeIn>
             ))}
+            {/* <FloatingPills /> */}
           </div>
         </div>
       </div>
