@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import CursorFollower from "@/app/components/CursorFollower";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Arzen",
@@ -16,7 +18,11 @@ export default function RootLayout({
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
         <CursorFollower />
-        {children}
+        <Header />
+        <main>
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

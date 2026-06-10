@@ -1,6 +1,7 @@
 import SDG from "./ui/SDG";
 import FadeIn from "@/app/components/aminations/FadeIn";
-import ProjectCard, { type Project } from "./ProjectCard";
+import ProjectCard from "./ProjectCard";
+import Project from "../types/project";
 
 const PROJECTS: Project[] = [
   {
