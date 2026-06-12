@@ -64,7 +64,7 @@ export default function ProjectModal({
                 )}
               </div>
 
-              <h2 className="font-heading mb-[22px] text-[23px] font-bold tracking-[-0.01em]">
+              <h2 className="font-display mb-[22px] text-[23px] font-bold tracking-[-0.01em]">
                 {project.title}
               </h2>
               <p className="mb-[52px] text-[21px] leading-[1.55] tracking-[0.04em] text-white">
@@ -98,7 +98,7 @@ export default function ProjectModal({
                   }`}
                 >
                   <span
-                    className={`font-heading text-[45px] font-extrabold leading-none tracking-[-0.02em] ${GRADIENT_TEXT}`}
+                    className={`font-display text-[45px] font-extrabold leading-none tracking-[-0.02em] ${GRADIENT_TEXT}`}
                   >
                     {s.value}
                   </span>

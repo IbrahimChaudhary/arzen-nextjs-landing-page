@@ -171,7 +171,7 @@ const Portfolio = () => {
       {/* Header */}
       <SDG title="Our Work" />
       <div className="flex flex-col gap-5">
-        <h1 className="font-heading font-semibold text-[53px]">
+        <h1 className="font-display font-semibold text-[53px]">
           Selected Projects
         </h1>
 

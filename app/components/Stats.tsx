@@ -26,7 +26,7 @@ export default function Stats() {
                     i < 2 ? "border-b md:border-b-0 border-white/10" : ""
                   }`}
                 >
-                  <span className="font-heading text-btn-gradient text-[32px] md:text-[40px] tabular-nums">
+                  <span className="font-display text-btn-gradient text-[32px] md:text-[40px] tabular-nums">
                     <CountUp target={s.target} suffix={s.suffix} />
                   </span>
                   <span className="text-xs text-white/50 text-center px-2">{s.label}</span>
