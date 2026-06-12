@@ -1,6 +1,23 @@
 import type { Metadata } from "next";
+import { Archivo_Black, DM_Sans } from "next/font/google";
 import "./globals.css";
 import CursorFollower from "@/app/components/CursorFollower";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
+const archivoBlack = Archivo_Black({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-archivo-black",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Arzen",
@@ -13,10 +30,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html
+      lang="en"
+      className={`${archivoBlack.variable} ${dmSans.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col">
         <CursorFollower />
-        {children}
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

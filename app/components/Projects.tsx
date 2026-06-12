@@ -1,6 +1,7 @@
 import SDG from "./ui/SDG";
 import FadeIn from "@/app/components/aminations/FadeIn";
-import ProjectCard, { type Project } from "./ProjectCard";
+import ProjectCard from "./ProjectCard";
+import Project from "../types/project";
 
 const PROJECTS: Project[] = [
   {
@@ -39,7 +40,7 @@ export default function Projects() {
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-4 md:mb-[38px]">
             <div className="flex flex-col gap-4">
               <SDG title="Our Work" />
-              <h2 className="font-heading text-[38px] md:text-[53px] leading-none tracking-[-0.04em]">
+              <h2 className="font-display text-[38px] md:text-[53px] leading-none tracking-[-0.04em]">
                 Selected Projects
               </h2>
             </div>
@@ -68,7 +69,7 @@ export default function Projects() {
             <div className="flex flex-col gap-5 relative z-10">
               <SDG title="Let's Work Together" className="bg-[#0E1911] border-none" />
 
-              <div className="font-heading leading-[0.95] tracking-[-0.04em]">
+              <div className="font-display leading-[0.95] tracking-[-0.04em]">
                 <h3 className="text-[32px] md:text-[52px] text-white">Let's Build Something</h3>
                 <span className="text-btn-gradient text-[32px] md:text-[52px]">Powerful Together</span>
               </div>

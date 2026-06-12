@@ -1,3 +1,4 @@
+import FloatingPills from "./aminations/FloatingPills";
 import SDG from "./ui/SDG";
 import FadeIn from "@/app/components/aminations/FadeIn";
 
@@ -66,14 +67,12 @@ export default function Hero() {
                 className="
                   text-[clamp(2.5rem,8vw,5.25rem)]
                   leading-[0.95]
-                  font-archivo-black
+                  font-display
                   tracking-tight
                 "
               >
                 <span>We Speak Code. We </span>
-                <span className="text-btn-gradient">
-                  Deliver Growth.
-                </span>
+                <span className="text-btn-gradient">Deliver Growth.</span>
               </h1>
             </FadeIn>
 
@@ -87,19 +86,18 @@ export default function Hero() {
                   text-white/65
                 "
               >
-                Arzen Inc is a software house crafting digital
-                products, brands and experiences that drive real
-                business impact.
+                Arzen Inc is a software house crafting digital products, brands
+                and experiences that drive real business impact.
               </p>
             </FadeIn>
 
             <FadeIn delay={0.3} direction="up">
               <div className="mt-6 flex flex-wrap gap-3">
-                <button className="rounded-full bg-btn-gradient px-5 py-2.5 text-sm font-semibold text-black">
+                <button className="btn-primary rounded-full bg-btn-gradient px-5 py-2.5 text-sm font-semibold text-black">
                   Start a Project
                 </button>
 
-                <button className="rounded-full border border-white/25 px-5 py-2.5 text-sm text-white/80 transition hover:border-white/60 hover:text-white">
+                <button className="btn-primary rounded-full border border-white/25 px-5 py-2.5 text-sm text-white/80 transition hover:border-white/60 hover:text-white">
                   View Our Work
                 </button>
               </div>
@@ -133,9 +131,7 @@ export default function Hero() {
 
                 <p className="text-xs text-white/50">
                   Trusted by{" "}
-                  <span className="font-semibold text-white">
-                    50+ Clients
-                  </span>{" "}
+                  <span className="font-semibold text-white">50+ Clients</span>{" "}
                   around the world
                 </p>
               </div>
@@ -174,11 +170,7 @@ export default function Hero() {
             "
           >
             {PILL_LABELS.map((label, i) => (
-              <FadeIn
-                key={label}
-                delay={0.1 + i * 0.07}
-                direction="left"
-              >
+              <FadeIn key={label} delay={0.1 + i * 0.07} direction="left">
                 <button
                   className="
                     min-w-[170px]
@@ -200,6 +192,7 @@ export default function Hero() {
                 </button>
               </FadeIn>
             ))}
+            {/* <FloatingPills /> */}
           </div>
         </div>
       </div>
