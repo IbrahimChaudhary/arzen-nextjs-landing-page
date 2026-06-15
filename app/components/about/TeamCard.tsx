@@ -22,10 +22,10 @@ export default function TeamCard({ member }: TeamCardProps) {
         {member.initials}
       </div>
 
-      <h3 className="mt-6 font-sans text-xl font-bold text-white">
+      <h3 className="mt-6 font-display text-xl font-bold text-white">
         {member.name}
       </h3>
-      <p className="mt-1 text-xs text-[#8a8a8a]">{member.role}</p>
+      <p className="font-body font-extralight text-[10px] leading-[13px] text-default">{member.role}</p>
 
       <p className="mt-5 text-sm leading-[1.6] text-[#9a9a9a]">{member.bio}</p>
     </div>

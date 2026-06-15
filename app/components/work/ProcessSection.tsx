@@ -4,16 +4,6 @@ import SectionLabel from "./SectionLabel";
 const GRADIENT_TEXT =
   "bg-gradient-to-r from-[#5fbf5a] via-[#a9d17a] to-[#e89bb0] bg-clip-text text-transparent";
 
-/**
- * "Our Process" section: heading plus a row of numbered steps.
- * 4 columns on desktop (lg), 2 on tablet (sm), 1 on mobile.
- *
- * Dividers are handled per-cell with explicit, readable rules rather than
- * brittle arbitrary variants:
- *   - mobile (1 col): top border on every step except the first
- *   - sm (2 cols): right border on left column; top border on the bottom row
- *   - lg (4 cols): right border on all but the last; no top borders
- */
 export default function ProcessSection() {
   const total = processSteps.length;
 
@@ -23,9 +13,7 @@ export default function ProcessSection() {
         <SectionLabel>Our Process</SectionLabel>
       </div>
 
-      <h2 className="mb-10 font-sans text-3xl font-extrabold tracking-[-0.02em] text-white sm:text-4xl md:mb-12 md:text-5xl">
-        How we work.
-      </h2>
+      <h2 className="mb-10 font-display text-3xl font-normal">How we work.</h2>
 
       <div className="grid grid-cols-1 overflow-hidden rounded-2xl border border-[#1f1f1f] bg-[#0d0d0d] sm:grid-cols-2 lg:grid-cols-4">
         {processSteps.map((step, i) => {
@@ -48,10 +36,10 @@ export default function ProcessSection() {
           return (
             <div
               key={step.title}
-              className={`p-7 ${mobileBorder} ${smBorder} ${lgBorder}`}
+              className={`flex flex-col gap-[8.76px] p-7 ${mobileBorder} ${smBorder} ${lgBorder}`}
             >
               <span
-                className={`font-sans text-3xl font-extrabold ${GRADIENT_TEXT}`}
+                className={`font-display text-3xl font-extrabold ${GRADIENT_TEXT}`}
               >
                 {number}
               </span>

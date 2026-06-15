@@ -23,10 +23,10 @@ export default function ProjectRow({ project, index }: ProjectRowProps) {
 
       {/* Title + stack */}
       <div className="min-w-0 flex-1">
-        <h3 className="font-sans text-lg font-bold text-white md:text-xl">
+        <h3 className="font-display text-normal text-text-white font-medium">
           {project.title}
         </h3>
-        <p className="mt-1.5 font-mono text-[13px] tracking-[0.1em] text-[#7a7a7a]">
+        <p className="mt-1.5 text-[13px] tracking-[0.1em] text-text-white">
           {project.stack.join("  ·  ")}
         </p>
       </div>

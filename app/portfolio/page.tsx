@@ -175,7 +175,7 @@ const Portfolio = () => {
           Selected Projects
         </h1>
 
-        <p className="text-[#F4F4F4] text-[16px] max-w-2xl">
+        <p className="font-body font-medium text-base max-w-2xl">
           Every project built with intention, craft, and relentless focus on
           results. Click any project to see the full case study.
         </p>

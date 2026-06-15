@@ -5,18 +5,18 @@
  */
 export default function AboutHero() {
   return (
-    <header className="mb-20">
+    <header className="mb-20 flex flex-col gap-[40px]">
       <div className="mb-10">
         <span className="inline-flex items-center rounded-full border border-[#2f6e33] px-5 py-2 text-base text-[#4caf50]">
           Who We Are
         </span>
       </div>
 
-      <h1 className="max-w-4xl font-sans text-5xl font-extrabold leading-[1.05] tracking-[-0.02em] text-white sm:text-6xl md:text-7xl">
+      <h1 className="font-display leading-[1.04] text-default text-[clamp(2rem,5vw,53px)] max-w-3xl">
         We build digital products that drive real growth.
       </h1>
 
-      <p className="mt-10 max-w-2xl text-lg leading-[1.7] text-[#d4d4d4] md:text-xl">
+      <p className="mt-10 max-w-2xl text-lg leading-[1.7] text-text-white md:text-xl">
         Arzen Inc is a software house founded on the belief that great
         technology and great design are inseparable. We partner with startups to
         craft digital products that perform and endure.

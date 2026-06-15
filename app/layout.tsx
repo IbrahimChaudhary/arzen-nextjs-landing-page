@@ -37,7 +37,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <CursorFollower />
         <Header />
-        <main>{children}</main>
+        <main className="bg-[#0A0A0A]">{children}</main>
         <Footer />
       </body>
     </html>

@@ -5,11 +5,11 @@
  */
 export default function ProjectCTA() {
   return (
-    <section className="mt-12 rounded-2xl border border-[#1f1f1f] bg-[#0d0d0d] px-6 py-20 text-center md:py-24">
-      <h2 className="font-sans text-3xl font-extrabold text-white md:text-4xl">
+    <section className="mt-12 rounded-2xl border border-[#1f1f1f] bg-[#1A1A1A] px-6 py-20 text-center md:py-24">
+      <h2 className="font-display font-medium text-[26px]">
         Have a project in mind?
       </h2>
-      <p className="mt-4 font-mono text-sm tracking-[0.15em] text-[#9a9a9a] md:text-base">
+      <p className="mt-4 text-text-white tracking-[3px] text-normal">
         Let&apos;s turn your idea into a product people love.
       </p>
 

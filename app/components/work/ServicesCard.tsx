@@ -18,7 +18,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
         {number}
       </span>
 
-      <h3 className="mt-6 font-sans text-2xl font-bold text-white md:mt-8 md:text-3xl">
+      <h3 className="mt-6 section-title">
         {service.title}
       </h3>
 

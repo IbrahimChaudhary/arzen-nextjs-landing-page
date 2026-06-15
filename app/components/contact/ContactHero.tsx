@@ -1,20 +1,17 @@
-/**
- * Contact page hero: badge, display heading, supporting copy.
- */
+import SDG from "../ui/SDG";
+
 export default function ContactHero() {
   return (
     <header className="mb-12 md:mb-16">
-      <div className="mb-8">
-        <span className="inline-flex items-center rounded-pill border border-accent-border px-5 py-2 text-sm text-accent sm:text-base">
-          Start a Project
-        </span>
+      <div className="mb-10">
+        <SDG title="Start a Project" />
       </div>
 
-      <h1 className="font-display text-4xl font-extrabold leading-[1.05] tracking-[-0.02em] text-default sm:text-5xl md:text-6xl lg:text-7xl">
+      <h1 className="font-display mb-10 text-4xl font-normal text-[53px]">
         Let&apos;s build something great.
       </h1>
 
-      <p className="mt-6 max-w-xl text-base leading-[1.7] text-secondary sm:text-lg md:mt-8">
+      <p className="mt-6 font-body mb-10 font-medium text-base leading-[1.8] text-default max-w-xl">
         Fill in the form and we&apos;ll get back to you within 24 hours with a
         free consultation.
       </p>

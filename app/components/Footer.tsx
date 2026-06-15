@@ -19,7 +19,7 @@ const FOOTER_COLS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0d0d0d] text-white px-6 md:px-10 lg:px-16 py-14 flex flex-col gap-10">
+    <footer className="bg-[#0D0D0D] text-white px-6 md:px-10 lg:px-16 py-14 flex flex-col gap-10">
 
       {/* Main row */}
       <div className="flex flex-col lg:flex-row justify-between gap-10 pb-10 border-b border-white/10">

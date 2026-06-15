@@ -28,7 +28,7 @@ export function TextField({
       placeholder={placeholder}
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="w-full rounded-card bg-surface-2 px-6 py-5 text-base text-default placeholder:text-faint outline-none transition-colors focus:bg-[#1a1a1a] focus:ring-1 focus:ring-line-3"
+      className="w-full rounded-[10px] bg-[#2B2B2B] px-6 py-5 text-gray-text text-base text-default placeholder:text-faint outline-none transition-colors focus:bg-[#1a1a1a] focus:ring-1 focus:ring-line-3"
     />
   );
 }
@@ -59,7 +59,7 @@ export function TextAreaField({
       value={value}
       onChange={(e) => onChange(e.target.value)}
       rows={rows}
-      className="w-full resize-none rounded-card bg-surface-2 px-6 py-5 text-base leading-relaxed text-default placeholder:text-faint outline-none transition-colors focus:bg-[#1a1a1a] focus:ring-1 focus:ring-line-3"
+      className="w-full resize-none rounded-card bg-[#2B2B2B] rounded-[10px] px-6 py-5 text-base leading-relaxed text-default placeholder:text-faint outline-none transition-colors focus:bg-[#1a1a1a] focus:ring-1 focus:ring-line-3"
     />
   );
 }
@@ -97,7 +97,7 @@ export function ServiceSelect({
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex w-full items-center justify-between rounded-card bg-surface-2 px-6 py-5 text-left text-base text-default outline-none transition-colors hover:bg-[#1a1a1a] focus:ring-1 focus:ring-line-3"
+        className="flex w-full rounded-[10px] bg-[#2B2B2B] text-gray-text items-center justify-between rounded-card bg-surface-2 px-6 py-5 text-left text-base text-default outline-none transition-colors hover:bg-[#1a1a1a] focus:ring-1 focus:ring-line-3"
       >
         <span>{value}</span>
         <svg
@@ -119,7 +119,7 @@ export function ServiceSelect({
       </button>
 
       {open && (
-        <ul className="absolute z-10 mt-2 w-full overflow-hidden rounded-card border border-line bg-surface-2 shadow-xl">
+        <ul className="absolute z-10 mt-2 w-full overflow-hidden rounded-card border border-line bg-[#2B2B2B] shadow-xl">
           {options.map((option) => (
             <li key={option}>
               <button
@@ -166,12 +166,18 @@ export function FeatureCheckbox({
       <span
         className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition-colors ${
           checked
-            ? "border-accent-border bg-accent text-black"
-            : "border-line-3 bg-surface-2"
+            ? "border-accent-border bg-accent text-white"
+            : "border-line-3 bg-white"
         }`}
       >
         {checked && (
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
             <path
               d="M5 12l5 5L20 6"
               stroke="currentColor"
@@ -182,7 +188,9 @@ export function FeatureCheckbox({
           </svg>
         )}
       </span>
-      <span className="text-base text-secondary">{label}</span>
+      <span className="font-body font-extralight text-xs leading-[17px] text-center text-default">
+        {label}
+      </span>
     </button>
   );
 }

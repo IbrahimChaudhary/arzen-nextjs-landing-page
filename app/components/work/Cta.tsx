@@ -12,7 +12,7 @@ export default function CTA() {
         Ready to work <span className={GRADIENT_TEXT}>together?</span>
       </h2>
 
-      <p className="mx-auto mt-5 max-w-xl font-mono text-sm tracking-[0.12em] text-[#b4b4b4] sm:text-base">
+      <p className="mx-auto mt-5 max-w-2xl font-mono text-sm tracking-[0.12em] text-[#b4b4b4] sm:text-base">
         Tell us about your project and we&apos;ll get back within 24 hours.
       </p>
 
