@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 /**
  * Closing call-to-action panel.
  * Static display: the button is presentational (no handler) to match the
@@ -13,12 +15,12 @@ export default function ProjectCTA() {
         Let&apos;s turn your idea into a product people love.
       </p>
 
-      <button
-        type="button"
-        className="mt-8 rounded-full bg-white px-7 py-3 text-sm font-medium text-[#0a0a0a] transition-opacity hover:opacity-90 active:scale-[0.98]"
+      <Link
+        href="/contact"
+        className="inline-block mt-8 rounded-full bg-white px-7 py-3 text-sm font-medium text-[#0a0a0a] transition-opacity hover:opacity-90 active:scale-[0.98]"
       >
         Start a Project
-      </button>
+      </Link>
     </section>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Project from "../types/project";
 
 /**
@@ -32,7 +33,10 @@ export default function ProjectModal({
   return (
     <div className="w-[1046px] mx-auto rounded-[20px] border border-[#232323] bg-[#0a0a0a] font-mono text-white shadow-2xl">
       <div className="max-h-[calc(100vh-96px)] overflow-hidden rounded-[20px]">
-        <div className="overflow-y-auto max-h-[calc(100vh-96px)]">
+        <div
+          className="overflow-y-auto max-h-[calc(100vh-96px)] scrollbar-thin scrollbar-track-[#0a0a0a] scrollbar-thumb-[#3d3d3d]"
+          style={{ scrollbarWidth: "thin", scrollbarColor: "#3d3d3d #0a0a0a" }}
+        >
           <header className="border-b border-[#232323] p-[47px]">
             <span className="text-[19px] font-bold tracking-[-0.01em]">
               {project.caseStudy?.title ?? project.title}
@@ -108,13 +112,15 @@ export default function ProjectModal({
             </div>
 
             <div className="flex flex-wrap items-center gap-[35px]">
-              <button
-                type="button"
-                onClick={onStartSimilar}
-                className="rounded-full border border-white bg-white px-[21px] py-[19px] font-sans font-md text-[20px] text-black transition-opacity hover:opacity-90 active:scale-[0.98]"
-              >
-                Start Similar Project
-              </button>
+              <Link href="/contact">
+                <button
+                  type="button"
+                  onClick={onStartSimilar}
+                  className="rounded-full border border-white bg-white px-[21px] py-[19px] font-sans font-md text-[20px] text-black transition-opacity hover:opacity-90 active:scale-[0.98]"
+                >
+                  Start Similar Project
+                </button>
+              </Link>
               <button
                 type="button"
                 onClick={onClose}

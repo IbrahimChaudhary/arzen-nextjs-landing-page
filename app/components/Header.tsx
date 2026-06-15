@@ -24,6 +24,7 @@ export default function Header() {
   return (
     <header className="sticky  inset-x-0 top-0 z-50 border-b border-white/10 bg-header-bar/80 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 md:px-10">
+        <Link href='/'>
         <Image
           src="/logo.png"
           alt="Arzen"
@@ -31,7 +32,7 @@ export default function Header() {
           height={34}
           className="w-[84px] md:w-[100px] h-auto"
         />
-
+        </Link>
         <nav className="hidden md:flex items-center gap-2 relative">
           {NAV_LINKS.map((item) => {
             const isActive = pathname === item.href;
@@ -67,14 +68,15 @@ export default function Header() {
           })}
         </nav>
 
-        <a
-          href="#contact"
+        <Link
+          href="/contact"
           className="btn-primary hidden md:inline-flex items-center rounded-full bg-btn-gradient px-5 py-2 text-sm font-semibold text-black"
         >
           Get Started
-        </a>
+        </Link>
 
         <button
+          type="button"
           className="md:hidden text-white"
           onClick={() => setOpen(!open)}
           aria-label="Toggle Menu"
@@ -86,27 +88,24 @@ export default function Header() {
       {open && (
         <div className="md:hidden border-t border-white/10 bg-header-bar px-4 py-6">
           <div className="flex flex-col gap-5">
-            {NAV_LINKS.map((link) => {
-              const href = `#${link.label.toLowerCase() === "about" ? "services" : link.label.toLowerCase()}`;
-              return (
-                <Link
-                  key={link.label}
-                  href={href}
-                  className="text-white/70"
-                  onClick={() => setOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-white/70"
+                onClick={() => setOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
 
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="w-fit rounded-full bg-btn-gradient px-5 py-2 text-sm font-semibold text-black"
               onClick={() => setOpen(false)}
             >
               Get Started
-            </a>
+            </Link>
           </div>
         </div>
       )}

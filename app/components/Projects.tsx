@@ -2,6 +2,7 @@ import SDG from "./ui/SDG";
 import FadeIn from "@/app/components/aminations/FadeIn";
 import ProjectCard from "./ProjectCard";
 import Project from "../types/project";
+import Link from "next/link";
 
 const PROJECTS: Project[] = [
   {
@@ -44,9 +45,9 @@ export default function Projects() {
                 Selected Projects
               </h2>
             </div>
-            <button className="hidden sm:flex items-center justify-center h-11 px-5 rounded-full border border-border text-sm text-white/60 hover:text-white hover:border-white/40 transition-all duration-300 shrink-0">
+            <Link href="/portfolio" className="hidden sm:flex items-center justify-center h-11 px-5 rounded-full border border-border text-sm text-white/60 hover:text-white hover:border-white/40 transition-all duration-300 shrink-0">
               View All Work
-            </button>
+            </Link>
           </div>
         </FadeIn>
 
@@ -79,9 +80,9 @@ export default function Projects() {
                 secure and scalable. Built with modern tech stacks.
               </p>
 
-              <button className="btn-primary w-fit h-11 px-6 rounded-full bg-btn-gradient text-black text-sm font-semibold hover:scale-[1.02] transition-transform">
+              <Link href="/contact" className="btn-primary inline-block w-fit h-11 px-6 rounded-full bg-btn-gradient text-black text-sm font-semibold hover:scale-[1.02] transition-transform">
                 Start Your Project
-              </button>
+              </Link>
             </div>
           </div>
         </FadeIn>

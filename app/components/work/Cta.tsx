@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const GRADIENT_TEXT =
   "bg-gradient-to-r from-[#5fbf5a] via-[#a9d17a] to-[#e89bb0] bg-clip-text text-transparent";
 
@@ -16,12 +18,12 @@ export default function CTA() {
         Tell us about your project and we&apos;ll get back within 24 hours.
       </p>
 
-      <button
-        type="button"
-        className="mt-8 rounded-full bg-[#f4f4f2] px-7 py-3.5 text-sm font-medium text-[#0a0a0a] transition-opacity hover:opacity-90 active:scale-[0.98] md:mt-10"
+      <Link
+        href="/contact"
+        className="inline-block mt-8 rounded-full bg-[#f4f4f2] px-7 py-3.5 text-sm font-medium text-[#0a0a0a] transition-opacity hover:opacity-90 active:scale-[0.98] md:mt-10"
       >
         Start a Project
-      </button>
+      </Link>
     </section>
   );
 }

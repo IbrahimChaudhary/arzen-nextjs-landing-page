@@ -7,8 +7,8 @@ import ProjectRow from "./ProjectRow";
  */
 export default function ProjectList() {
   return (
-    <section className="overflow-hidden rounded-2xl border border-[#1f1f1f] bg-[#1A1A1A]">
-      <div className="divide-y divide-[#1f1f1f]">
+    <section className="overflow-hidden rounded-2xl border border-1 border-[#535353] bg-[#1A1A1A]">
+      <div className="divide-y divide-[#535353]">
         {projects.map((project, i) => (
           <ProjectRow key={project.title} project={project} index={i + 1} />
         ))}

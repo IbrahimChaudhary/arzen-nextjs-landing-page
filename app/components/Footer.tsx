@@ -1,19 +1,35 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const SOCIAL_HANDLES = ["in", "ig", "tw", "gh"];
 
 const FOOTER_COLS = [
   {
     heading: "Company",
-    links: ["About Us", "Our Team", "Careers", "Blog"],
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Our Team", href: "/about" },
+      { label: "Careers", href: "#" },
+      { label: "Blog", href: "#" },
+    ],
   },
   {
     heading: "Services",
-    links: ["Web Development", "UI/UX Design", "Branding", "Digital Growth"],
+    links: [
+      { label: "Web Development", href: "/work" },
+      { label: "UI/UX Design", href: "/work" },
+      { label: "Branding", href: "/work" },
+      { label: "Digital Growth", href: "/work" },
+    ],
   },
   {
     heading: "Resources",
-    links: ["Case Studies", "Documentation", "Privacy Policy", "Terms"],
+    links: [
+      { label: "Case Studies", href: "/projects" },
+      { label: "Documentation", href: "#" },
+      { label: "Privacy Policy", href: "#" },
+      { label: "Terms", href: "#" },
+    ],
   },
 ];
 
@@ -49,11 +65,13 @@ export default function Footer() {
               <h3 className="font-display text-[15px] md:text-[17px]">{col.heading}</h3>
               <ul className="flex flex-col gap-2 text-sm text-gray-text">
                 {col.links.map((link) => (
-                  <li
-                    key={link}
-                    className="hover:text-white cursor-pointer transition-colors"
-                  >
-                    {link}
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>

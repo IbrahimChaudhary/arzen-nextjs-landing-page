@@ -1,8 +1,6 @@
-/**
- * About page hero: "Who We Are" badge, display heading, intro copy,
- * and the two CTA buttons.
- * Buttons are presentational (static page). Swap for <Link> when wiring up.
- */
+import Link from "next/link";
+
+
 export default function AboutHero() {
   return (
     <header className="mb-20 flex flex-col gap-[40px]">
@@ -23,18 +21,22 @@ export default function AboutHero() {
       </p>
 
       <div className="mt-10 flex flex-wrap gap-4">
-        <button
-          type="button"
-          className="rounded-full bg-[#f4f4f2] px-7 py-3.5 text-base text-[#0a0a0a] transition-opacity hover:opacity-90 active:scale-[0.98]"
-        >
-          Our Services
-        </button>
-        <button
-          type="button"
-          className="rounded-full border border-[#3a3a3a] px-7 py-3.5 text-base text-white transition-colors hover:bg-[#141414] active:scale-[0.98]"
-        >
-          View Portfolio
-        </button>
+        <Link href="/work">
+          <button
+            type="button"
+            className="rounded-full bg-[#f4f4f2] px-7 py-3.5 text-base text-[#0a0a0a] transition-opacity hover:opacity-90 active:scale-[0.98]"
+          >
+            Our Services
+          </button>
+        </Link>
+        <Link href="/portfolio">
+          <button
+            type="button"
+            className="rounded-full border border-[#3a3a3a] px-7 py-3.5 text-base text-white transition-colors hover:bg-[#141414] active:scale-[0.98]"
+          >
+            View Portfolio
+          </button>
+        </Link>
       </div>
     </header>
   );
