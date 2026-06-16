@@ -262,3 +262,7 @@
   }
 
 }
+
+@media (prefers-reduced-motion: reduce) {
+  /* motion divs render fully visible */
+}

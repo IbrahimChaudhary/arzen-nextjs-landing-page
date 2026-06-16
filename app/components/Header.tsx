@@ -22,16 +22,16 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky  inset-x-0 top-0 z-50 border-b border-white/10 bg-header-bar/80 backdrop-blur-md">
+    <header className="sticky inset-x-0 top-0 z-50 border-b border-white/10 bg-header-bar/80 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 md:px-10">
-        <Link href='/'>
-        <Image
-          src="/logo.png"
-          alt="Arzen"
-          width={100}
-          height={34}
-          className="w-[84px] md:w-[100px] h-auto"
-        />
+        <Link href="/">
+          <Image
+            src="/logo.png"
+            alt="Arzen"
+            width={100}
+            height={34}
+            className="w-[84px] md:w-[100px] h-auto"
+          />
         </Link>
         <nav className="hidden md:flex items-center gap-2 relative">
           {NAV_LINKS.map((item) => {
@@ -77,22 +77,27 @@ export default function Header() {
 
         <button
           type="button"
-          className="md:hidden text-white"
-          onClick={() => setOpen(!open)}
+          className="md:hidden text-white p-4 rounded-full relative z-[60]"
+          onClick={() => setOpen((prev) => !prev)}
           aria-label="Toggle Menu"
+          aria-expanded={open}
+          style={{
+            touchAction: "manipulation",
+            WebkitTapHighlightColor: "transparent",
+          }}
         >
           {open ? <IoCloseOutline size={28} /> : <RxHamburgerMenu size={22} />}
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-white/10 bg-header-bar px-4 py-6">
-          <div className="flex flex-col gap-5">
+        <div className="md:hidden absolute inset-x-0 top-full border-t border-white/10 bg-header-bar px-4 py-6 z-50">
+          <div className="flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-white/70"
+                className="block rounded-xl px-3 py-3 text-white/80 transition hover:bg-white/5 hover:text-white"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
@@ -101,7 +106,7 @@ export default function Header() {
 
             <Link
               href="/contact"
-              className="w-fit rounded-full bg-btn-gradient px-5 py-2 text-sm font-semibold text-black"
+              className="inline-flex w-fit rounded-full bg-btn-gradient px-5 py-2 text-sm font-semibold text-black"
               onClick={() => setOpen(false)}
             >
               Get Started
