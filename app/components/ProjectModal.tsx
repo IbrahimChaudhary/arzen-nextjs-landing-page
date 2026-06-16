@@ -31,47 +31,47 @@ export default function ProjectModal({
   const description = project.caseStudy?.intro ?? "";
 
   return (
-    <div className="w-[1046px] mx-auto rounded-[20px] border border-[#232323] bg-[#0a0a0a] font-mono text-white shadow-2xl">
-      <div className="max-h-[calc(100vh-96px)] overflow-hidden rounded-[20px]">
+    <div className="w-full max-w-[1046px] mx-auto rounded-[20px] border border-[#232323] bg-[#0a0a0a] font-mono text-white shadow-2xl">
+      <div className="max-h-[calc(100vh-48px)] overflow-hidden rounded-[20px] sm:max-h-[calc(100vh-96px)]" onClick={(event) => event.stopPropagation()}>
         <div
-          className="overflow-y-auto max-h-[calc(100vh-96px)] scrollbar-thin scrollbar-track-[#0a0a0a] scrollbar-thumb-[#3d3d3d]"
+          className="overflow-y-auto max-h-[calc(100vh-48px)] scrollbar-thin scrollbar-track-[#0a0a0a] scrollbar-thumb-[#3d3d3d] sm:max-h-[calc(100vh-96px)]"
           style={{ scrollbarWidth: "thin", scrollbarColor: "#3d3d3d #0a0a0a" }}
         >
-          <header className="border-b border-[#232323] p-[47px]">
+          <header className="border-b border-[#232323] p-6 sm:p-[47px]">
             <span className="text-[19px] font-bold tracking-[-0.01em]">
               {project.caseStudy?.title ?? project.title}
             </span>
           </header>
 
-          <div className="p-[47px]">
-            <div className="flex items-center justify-center pb-[110px] pt-[120px]">
+          <div className="p-6 sm:p-[47px]">
+            <div className="flex items-center justify-center pb-20 pt-24 sm:pb-[110px] sm:pt-[120px]">
               <span
-                className={`font-sans text-[96px] font-bold leading-none tracking-[-0.04em] ${GRADIENT_TEXT}`}
+                className={`font-sans text-[70px] sm:text-[96px] font-bold leading-none tracking-[-0.04em] ${GRADIENT_TEXT}`}
               >
                 {project.logo}
               </span>
             </div>
-            <div className="flex flex-col gap-[50px]">
-              <div className="mb-11 flex flex-wrap gap-9">
+            <div className="flex flex-col gap-8 sm:gap-[50px]">
+              <div className="mb-8 flex flex-wrap gap-3 sm:gap-9">
                 {tags.map((tag) => (
                   <span
                     key={tag}
-                    className="whitespace-nowrap bg-[#1A1A1A] rounded-full border border-border p-[14px] text-[17px] tracking-[0.12em] text-gray-text"
+                    className="whitespace-nowrap bg-[#1A1A1A] rounded-full border border-border px-3 py-2 text-sm tracking-[0.12em] text-gray-text"
                   >
                     {tag}
                   </span>
                 ))}
                 {status && (
-                  <span className="whitespace-nowrap rounded-full border border-[#3DDB6A] p-[14px] text-base tracking-[0.12em] text-[#3DDB6A]">
+                  <span className="whitespace-nowrap rounded-full border border-[#3DDB6A] px-3 py-2 text-sm tracking-[0.12em] text-[#3DDB6A]">
                     {status}
                   </span>
                 )}
               </div>
 
-              <h2 className="font-display mb-[22px] text-[23px] font-bold tracking-[-0.01em]">
+              <h2 className="font-display mb-5 text-[22px] font-bold tracking-[-0.01em] sm:text-[23px]">
                 {project.title}
               </h2>
-              <p className="mb-[52px] text-[21px] leading-[1.55] tracking-[0.04em] text-white">
+              <p className="mb-12 text-[18px] leading-[1.6] tracking-[0.04em] text-white sm:mb-[52px] sm:text-[21px] sm:leading-[1.55]">
                 {description}
               </p>
               <div>
@@ -82,7 +82,7 @@ export default function ProjectModal({
                   {stack.map((s) => (
                     <span
                       key={s}
-                      className="whitespace-nowrap bg-[#1A1A1A] rounded-full border border-border p-[14px] text-base tracking-[0.1em] text-[#8b8b8b]"
+                      className="whitespace-nowrap bg-[#1A1A1A] rounded-full border border-border px-4 py-3 text-sm tracking-[0.1em] text-[#8b8b8b]"
                     >
                       {s}
                     </span>
@@ -111,12 +111,12 @@ export default function ProjectModal({
               ))}
             </div>
 
-            <div className="flex flex-wrap items-center gap-[35px]">
+            <div className="flex flex-wrap items-center gap-4">
               <Link href="/contact">
                 <button
                   type="button"
                   onClick={onStartSimilar}
-                  className="rounded-full border border-white bg-white px-[21px] py-[19px] font-sans font-md text-[20px] text-black transition-opacity hover:opacity-90 active:scale-[0.98]"
+                  className="rounded-full border border-white bg-white px-5 py-4 text-sm font-sans font-md text-black transition-opacity hover:opacity-90 active:scale-[0.98] sm:px-[21px] sm:py-[19px] sm:text-[20px]"
                 >
                   Start Similar Project
                 </button>
@@ -124,7 +124,7 @@ export default function ProjectModal({
               <button
                 type="button"
                 onClick={onClose}
-                className="rounded-full border border-[#2a2a2a] bg-transparent px-[21px] py-[19px] font-md text-[20px] text-white transition-colors hover:bg-[#141414] active:scale-[0.98]"
+                className="rounded-full border border-[#2a2a2a] bg-transparent px-5 py-4 text-sm font-md text-white transition-colors hover:bg-[#141414] active:scale-[0.98] sm:px-[21px] sm:py-[19px] sm:text-[20px]"
               >
                 Close
               </button>
