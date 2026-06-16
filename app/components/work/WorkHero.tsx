@@ -10,11 +10,11 @@ export default function WorkHero() {
         </span>
       </div>
 
-      <h1 className=" text-4xl leading-[1.05] tracking-[-0.02em] text-white sm:text-5xl md:text-6xl lg:text-7xl">
+      <h1 className="font-display text-[53px] font-normal">
         End-to-end digital solutions.
       </h1>
 
-      <p className="mt-6 max-w-xl text-base leading-[1.7] text-[#d4d4d4] sm:text-lg md:mt-8">
+      <p className="mt-6 max-w-xl text-base leading-[1.7] text-text-white sm:text-lg md:mt-8">
         We cover the full spectrum — from strategy and design to development and
         growth. One team, everything you need.
       </p>

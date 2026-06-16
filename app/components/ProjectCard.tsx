@@ -27,7 +27,7 @@ export default function ProjectCard({
         >
           <span
             className={`
-              ${project.text} font-display font-black tracking-[-0.05em]
+              ${project.text} font-display font-normal tracking-[-0.05em]
               transition-transform duration-500 group-hover:scale-105
               ${project.size === "large" ? "md:text-[64px]" : "text-[38px] md:text-[52px]"}
             `}
@@ -38,10 +38,10 @@ export default function ProjectCard({
         </div>
 
         <div className="border-t border-border bg-[#111] p-[33px]">
-          <p className="text-[12px] text-gray-text tracking-wide text-white/35 mb-1">
+          <p className="font-body text-[12px] text-gray-text tracking-wide text-white/35 mb-1">
             {project.category}
           </p>
-          <h3 className="text-[16px] font-display font-black mb-[20px] tracking-[-0.02em]">
+          <h3 className="text-[16px] font-display font-normal mb-[20px] tracking-[-0.02em]">
             {project.title}
           </h3>
           {description && (

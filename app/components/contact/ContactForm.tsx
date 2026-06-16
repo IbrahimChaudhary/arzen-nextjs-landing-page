@@ -54,7 +54,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="rounded-card-lg bg-surface p-6 sm:p-8 md:p-10">
+    <div className="rounded-card-lg bg-[#1A1A1A] rounded-[12px] p-6 sm:p-8 md:p-10">
       {/* Name + Email */}
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <TextField
@@ -126,7 +126,7 @@ export default function ContactForm() {
       <button
         type="button"
         onClick={handleSubmit}
-        className="mt-8 w-full rounded-pill bg-brand-gradient py-5 text-lg font-semibold text-black transition-opacity hover:opacity-90 active:scale-[0.99]"
+        className="mt-8 w-full rounded-pill bg-btn-gradient rounded-full py-5 text-lg font-medium text-sm text-black transition-opacity hover:opacity-90 active:scale-[0.99]"
       >
         Send Message
       </button>

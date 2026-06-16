@@ -10,11 +10,11 @@ export default function ProjectHero() {
         <ProjectsBadge />
       </div>
 
-      <h1 className="font-sans text-5xl font-extrabold leading-[1.05] tracking-[-0.02em] text-white sm:text-6xl md:text-7xl">
+      <h1 className="font-display text-[53px] font-normal leading-[1.05] tracking-[-0.02em] text-white sm:text-6xl">
         Every project tells a story.
       </h1>
 
-      <p className="mt-5 text-base text-[#9a9a9a] md:text-lg">
+      <p className="mt-5 text-text-white text-base">
         From MVPs to enterprise platforms — here&apos;s everything we&apos;ve
         shipped.
       </p>

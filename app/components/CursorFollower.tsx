@@ -18,6 +18,7 @@ export default function CursorFollower() {
   const isVisible = useRef(false);
 
   useEffect(() => {
+    const isFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     const move = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
@@ -26,21 +27,27 @@ export default function CursorFollower() {
     const show = () => { isVisible.current = true; };
     const hide = () => { isVisible.current = false; };
 
-    window.addEventListener("mousemove", move);
-    document.addEventListener("mouseenter", show);
-    document.addEventListener("mouseleave", hide);
+    if (isFinePointer) {
+      window.addEventListener("mousemove", move);
+      document.addEventListener("mouseenter", show);
+      document.addEventListener("mouseleave", hide);
+    }
 
     return () => {
-      window.removeEventListener("mousemove", move);
-      document.removeEventListener("mouseenter", show);
-      document.removeEventListener("mouseleave", hide);
+      if (isFinePointer) {
+        window.removeEventListener("mousemove", move);
+        document.removeEventListener("mouseenter", show);
+        document.removeEventListener("mouseleave", hide);
+      }
     };
   }, [cursorX, cursorY]);
 
+  const isFinePointer = typeof window !== "undefined" && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
   return (
     <>
-      {/* Hide the default cursor site-wide */}
-      <style>{`* { cursor: none !important; }`}</style>
+      {/* Hide the default cursor site-wide on pointer devices only */}
+      {isFinePointer && <style>{`* { cursor: none !important; }`}</style>}
 
       {/* ── Outer ring — lags behind ── */}
       <motion.div

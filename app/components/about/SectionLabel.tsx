@@ -8,7 +8,7 @@ interface SectionLabelProps {
  */
 export default function SectionLabel({ children }: SectionLabelProps) {
   return (
-    <span className="inline-flex items-center rounded-full border border-[#2a2a2a] px-5 py-2 font-mono text-sm tracking-[0.15em] text-[#9a9a9a]">
+    <span className="font-body tracking-[0.21em] font-medium text-[12px] px-[14px] py-[12px] border text-[#B8B8B8] border-[#535353] rounded-full leading-normal text-default">
       {children}
     </span>
   );

@@ -12,7 +12,7 @@ export default function OurStory() {
         <SectionLabel>Our Story</SectionLabel>
       </div>
 
-      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-[103px]">
         <div className="space-y-8 text-lg leading-[1.7] text-[#d4d4d4] md:text-xl">
           <p>
             Started by a team of developers and designers who were tired of

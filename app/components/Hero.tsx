@@ -1,6 +1,7 @@
 import FloatingPills from "./aminations/FloatingPills";
 import SDG from "./ui/SDG";
 import FadeIn from "@/app/components/aminations/FadeIn";
+import Link from "next/link";
 
 const PILL_LABELS = [
   "Get Started",
@@ -93,13 +94,13 @@ export default function Hero() {
 
             <FadeIn delay={0.3} direction="up">
               <div className="mt-6 flex flex-wrap gap-3">
-                <button className="btn-primary rounded-full bg-btn-gradient px-5 py-2.5 text-sm font-semibold text-black">
+                <Link href="/contact" className="btn-primary rounded-full bg-btn-gradient px-5 py-2.5 text-sm font-semibold text-black inline-flex items-center">
                   Start a Project
-                </button>
+                </Link>
 
-                <button className="btn-primary rounded-full border border-white/25 px-5 py-2.5 text-sm text-white/80 transition hover:border-white/60 hover:text-white">
+                <Link href="/portfolio" className="btn-primary rounded-full border border-white/25 px-5 py-2.5 text-sm text-white/80 transition hover:border-white/60 hover:text-white inline-flex items-center">
                   View Our Work
-                </button>
+                </Link>
               </div>
             </FadeIn>
 

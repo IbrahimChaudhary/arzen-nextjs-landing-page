@@ -16,7 +16,7 @@
   --color-green-text: #3ddb6a;
 
   --color-text-black: #0a0a0a;
-  --color-text-white: #f4f4f4;
+  --color-text-white: #F4F4F4;
 
   --font-display: "Archivo Black", sans-serif;
   --font-body: "DM Sans", sans-serif;
@@ -99,7 +99,17 @@
 ===================================================== */
 
 @layer components {
+  
+}
 
+@layer components {
+
+  .section-title {
+    font-family: var(--font-display);
+    line-height: 1.08;
+    letter-spacing: normal;
+    font-size: clamp(1.25rem, 4vw, 26px);
+  }
   /* Primary Button */
 
   .btn-primary {
@@ -251,4 +261,8 @@
     display: none !important;
   }
 
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* motion divs render fully visible */
 }
