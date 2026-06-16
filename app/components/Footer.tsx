@@ -82,7 +82,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-white/30">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-gray-text">
         <p>© 2026 Arzen Inc. All rights reserved.</p>
         <p>Designed with precision. Built for growth.</p>
       </div>

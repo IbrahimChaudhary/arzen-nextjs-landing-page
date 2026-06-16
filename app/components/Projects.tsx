@@ -80,9 +80,9 @@ export default function Projects() {
                 secure and scalable. Built with modern tech stacks.
               </p>
 
-              <Link href="/contact" className="btn-primary inline-block w-fit h-11 px-6 rounded-full bg-btn-gradient text-black text-sm font-semibold hover:scale-[1.02] transition-transform">
+              <button type="button" className="btn-primary inline-flex items-center justify-center w-fit h-11 px-6 rounded-full bg-btn-gradient text-black text-sm font-semibold hover:scale-[1.02] transition-transform">
                 Start Your Project
-              </Link>
+              </button>
             </div>
           </div>
         </FadeIn>
