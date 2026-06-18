@@ -13,7 +13,6 @@ export default function ContactPage() {
     <main className="min-h-screen bg-bg text-default">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24">
         <ContactHero />
-
         {/* Info (left) + Form (right). Stacks on mobile, splits on lg. */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_1.6fr] lg:gap-8">
           <ContactInfoPanel />

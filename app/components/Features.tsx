@@ -2,7 +2,7 @@ import { FaPencilAlt, FaCode } from "react-icons/fa";
 import { AiOutlineAntDesign } from "react-icons/ai";
 import { BsGraphUpArrow } from "react-icons/bs";
 import SDG from "./ui/SDG";
-import FadeIn from "@/app/components/aminations/FadeIn";
+import FadeIn from "@/app/components/animations/FadeIn";
 
 const SERVICES = [
   {

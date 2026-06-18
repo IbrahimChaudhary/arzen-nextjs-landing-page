@@ -1,5 +1,5 @@
-import FadeIn from "@/app/components/aminations/FadeIn";
-import CountUp from "@/app/components/aminations/CountUp";
+import FadeIn from "@/app/components/animations/FadeIn";
+import CountUp from "@/app/components/animations/CountUp";
 
 const STATS = [
   { target: 120, suffix: "+", label: "Projects Delivered" },

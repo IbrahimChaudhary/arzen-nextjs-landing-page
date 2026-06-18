@@ -1,5 +1,5 @@
 import SDG from "./ui/SDG";
-import FadeIn from "@/app/components/aminations/FadeIn";
+import FadeIn from "@/app/components/animations/FadeIn";
 import ProjectCard from "./ProjectCard";
 import Project from "../types/project";
 import Link from "next/link";

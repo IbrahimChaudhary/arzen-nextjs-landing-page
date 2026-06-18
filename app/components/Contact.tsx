@@ -2,7 +2,7 @@ import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 import SDG from "./ui/SDG";
-import FadeIn from "@/app/components/aminations/FadeIn";
+import FadeIn from "@/app/components/animations/FadeIn";
 
 const CONTACT_INFO = [
   { label: "Email",    value: "hello@arzen.com",    icon: <MdEmail size={15} />     },

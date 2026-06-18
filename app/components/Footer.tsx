@@ -9,8 +9,8 @@ const FOOTER_COLS = [
     links: [
       { label: "About Us", href: "/about" },
       { label: "Our Team", href: "/about" },
-      { label: "Careers", href: "#" },
-      { label: "Blog", href: "#" },
+      { label: "Careers", href: "/careers" },
+      { label: "Blog", href: "/blog" },
     ],
   },
   {
@@ -27,8 +27,8 @@ const FOOTER_COLS = [
     links: [
       { label: "Case Studies", href: "/projects" },
       { label: "Documentation", href: "#" },
-      { label: "Privacy Policy", href: "#" },
-      { label: "Terms", href: "#" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms", href: "/terms" },
     ],
   },
 ];
