@@ -28,8 +28,8 @@ export default function Header() {
           <Image
             src="/logo.png"
             alt="Arzen"
-            width={100}
-            height={34}
+            width={170}
+            height={25}
             className="w-[84px] md:w-[100px] h-auto"
           />
         </Link>
