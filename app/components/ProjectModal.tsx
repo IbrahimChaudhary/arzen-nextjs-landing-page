@@ -56,7 +56,7 @@ export default function ProjectModal({
                 {tags.map((tag) => (
                   <span
                     key={tag}
-                    className="whitespace-nowrap bg-[#1A1A1A] rounded-full border border-border px-3 py-2 text-sm tracking-[0.12em] text-gray-text"
+                    className="whitespace-nowrap bg-[#1A1A1A] rounded-full border border-border px-3 py-2 text-sm tracking-[0.12em] text-gray"
                   >
                     {tag}
                   </span>
@@ -75,7 +75,7 @@ export default function ProjectModal({
                 {description}
               </p>
               <div>
-                <div className="mb-5 text-base tracking-[0.06em] text-gray-text">
+                <div className="mb-5 text-base tracking-[0.06em] text-gray">
                   TECH STACK
                 </div>
                 <div className="mb-10 flex flex-wrap gap-[10px]">
@@ -106,7 +106,7 @@ export default function ProjectModal({
                   >
                     {s.value}
                   </span>
-                  <span className="text-lg text-gray-text">{s.label}</span>
+                  <span className="text-lg text-gray">{s.label}</span>
                 </div>
               ))}
             </div>

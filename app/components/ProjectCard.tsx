@@ -38,7 +38,7 @@ export default function ProjectCard({
         </div>
 
         <div className="border-t border-border bg-[#111] p-[33px]">
-          <p className="font-body text-[12px] text-gray-text tracking-wide text-white/35 mb-1">
+          <p className="font-body text-[12px] text-gray tracking-wide text-white/35 mb-1">
             {project.category}
           </p>
           <h3 className="text-[16px] font-display font-normal mb-[20px] tracking-[-0.02em]">

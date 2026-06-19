@@ -1,6 +1,7 @@
 import ContactHero from "@/app/components/contact/ContactHero";
 import ContactInfoPanel from "@/app/components/contact/ContactInfoPanel";
 import ContactForm from "@/app/components/contact/ContactForm";
+import PageShell from "@/app/components/ui/PageShell";
 
 export const metadata = {
   title: "Contact — Arzen Inc",
@@ -10,15 +11,13 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-bg text-default">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24">
-        <ContactHero />
-        {/* Info (left) + Form (right). Stacks on mobile, splits on lg. */}
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_1.6fr] lg:gap-8">
-          <ContactInfoPanel />
-          <ContactForm />
-        </div>
+    <PageShell>
+      <ContactHero />
+      {/* Info (left) + Form (right). Stacks on mobile, splits on lg. */}
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_1.6fr] lg:gap-8">
+        <ContactInfoPanel />
+        <ContactForm />
       </div>
-    </main>
+    </PageShell>
   );
 }

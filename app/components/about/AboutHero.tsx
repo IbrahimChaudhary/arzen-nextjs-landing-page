@@ -1,13 +1,12 @@
 import Link from "next/link";
+import SDG from "../ui/SDG";
 
 
 export default function AboutHero() {
   return (
     <header className="mb-20 flex flex-col gap-[40px]">
       <div className="mb-10">
-        <span className="inline-flex items-center rounded-full border border-[#2f6e33] px-5 py-2 text-base text-[#4caf50]">
-          Who We Are
-        </span>
+        <SDG title="Who We Are" />
       </div>
 
       <h1 className="font-display leading-[1.04] text-default text-[clamp(2rem,5vw,53px)] max-w-3xl">

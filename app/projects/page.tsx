@@ -1,6 +1,7 @@
 import WorkHero from "@/app/components/project/ProjectHero";
 import ProjectList from "@/app/components/project/ProjectList";
 import ProjectCTA from "@/app/components/project/ProjectCTA";
+import PageShell from "@/app/components/ui/PageShell";
 
 export const metadata = {
   title: "Our Work",
@@ -9,12 +10,10 @@ export const metadata = {
 
 export default function WorkPage() {
   return (
-    <main className="min-h-screen bg-black text-white">
-      <div className="mx-auto max-w-5xl px-4 py-16 md:py-20">
-        <WorkHero />
-        <ProjectList />
-        <ProjectCTA />
-      </div>
-    </main>
+    <PageShell>
+      <WorkHero />
+      <ProjectList />
+      <ProjectCTA />
+    </PageShell>
   );
 }

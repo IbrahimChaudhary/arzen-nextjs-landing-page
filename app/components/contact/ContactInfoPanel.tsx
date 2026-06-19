@@ -11,7 +11,7 @@ export default function ContactInfoPanel() {
           key={item.label}
           className="flex flex-col justify-center rounded-[15px] bg-[#1A1A1A] p-[28px]"
         >
-          <span className="text-xs text-gray-text">{item.label}</span>
+          <span className="text-xs text-gray">{item.label}</span>
           <span className="mt-2 font-display text-xs font-normal">
             {item.value}
           </span>

@@ -4,7 +4,7 @@ const page = () => {
   return (
     <ComingSoon
       title="Privacy Policy"
-      description="Privacy policies updating soon..."
+      description="Privacy policies comming soon."
     />
   );
 };

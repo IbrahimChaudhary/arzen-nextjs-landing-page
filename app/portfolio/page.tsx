@@ -2,6 +2,7 @@
 import { useState } from "react";
 import ProjectCard from "../components/ProjectCard";
 import SDG from "../components/ui/SDG";
+import PageShell from "../components/ui/PageShell";
 import Project from "../types/project";
 
 const tabs = ["All", "Web Dev", "Design", "SaaS", "Branding"];
@@ -167,7 +168,7 @@ const Portfolio = () => {
         );
 
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 py-12 flex flex-col gap-12">
+    <PageShell className="flex flex-col gap-12">
       {/* Header */}
       <SDG title="Our Work" />
       <div className="flex flex-col gap-5">
@@ -192,7 +193,7 @@ const Portfolio = () => {
                 className={`px-4 py-2 rounded-full text-xs transition-all border border-[#535353] ${
                   isActive
                     ? "bg-[#1A1A1A] border border-[#535353] text-white"
-                    : "text-gray-text hover:text-white"
+                    : "text-gray hover:text-white"
                 }`}
               >
                 {tab}
@@ -228,7 +229,7 @@ const Portfolio = () => {
             ))}
         </div>
       </div>
-    </div>
+    </PageShell>
   );
 };
 

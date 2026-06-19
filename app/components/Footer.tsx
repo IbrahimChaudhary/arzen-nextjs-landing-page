@@ -1,7 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const SOCIAL_HANDLES = ["in", "ig", "tw", "gh"];
+const SOCIAL_HANDLES = [
+  {
+    label: "ig",
+    href: "https://www.instagram.com/arzen_inc?igsh=MXE0M2tha3ljdGcweQ==",
+  },
+  { label: "fb", href: "https://www.facebook.com/share/1EzopujTCn/" },
+  { label: "tw", href: "#" },
+  { label: "gh", href: "#" },
+];
 
 const FOOTER_COLS = [
   {
@@ -47,12 +55,15 @@ export default function Footer() {
           </p>
           <div className="flex gap-2 text-xs text-white/70">
             {SOCIAL_HANDLES.map((s) => (
-              <span
-                key={s}
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="border border-white/20 rounded-md px-2.5 py-1.5 hover:border-white/50 cursor-pointer transition-all uppercase"
               >
-                {s}
-              </span>
+                {s.label}
+              </a>
             ))}
           </div>
         </div>
@@ -64,7 +75,7 @@ export default function Footer() {
               <h3 className="font-display text-[15px] md:text-[17px]">
                 {col.heading}
               </h3>
-              <ul className="flex flex-col gap-2 text-sm text-gray-text">
+              <ul className="flex flex-col gap-2 text-sm text-gray">
                 {col.links.map((link) => (
                   <li key={link.label}>
                     <Link
@@ -82,7 +93,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-gray-text">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-gray">
         <p>© 2026 Arzen Inc. All rights reserved.</p>
         <p>Designed with precision. Built for growth.</p>
       </div>

@@ -28,7 +28,7 @@ export function TextField({
       placeholder={placeholder}
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="w-full rounded-[10px] bg-[#2B2B2B] px-6 py-5 text-gray-text text-base text-default placeholder:text-faint outline-none transition-colors focus:bg-[#1a1a1a] focus:ring-1 focus:ring-line-3"
+      className="w-full rounded-[10px] bg-[#2B2B2B] px-6 py-5 text-gray text-base text-default placeholder:text-faint outline-none transition-colors focus:bg-[#1a1a1a] focus:ring-1 focus:ring-line-3"
     />
   );
 }
@@ -97,7 +97,7 @@ export function ServiceSelect({
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex w-full rounded-[10px] bg-[#2B2B2B] text-gray-text items-center justify-between rounded-card bg-surface-2 px-6 py-5 text-left text-base text-default outline-none transition-colors hover:bg-[#1a1a1a] focus:ring-1 focus:ring-line-3"
+        className="flex w-full rounded-[10px] bg-[#2B2B2B] text-gray items-center justify-between rounded-card bg-surface-2 px-6 py-5 text-left text-base text-default outline-none transition-colors hover:bg-[#1a1a1a] focus:ring-1 focus:ring-line-3"
       >
         <span>{value}</span>
         <svg

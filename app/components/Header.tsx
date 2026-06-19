@@ -58,7 +58,7 @@ export default function Header() {
 
                 <span
                   className={`relative z-10 transition-colors ${
-                    isActive ? "text-white" : "text-gray-text"
+                    isActive ? "text-white" : "text-gray"
                   }`}
                 >
                   {item.label}

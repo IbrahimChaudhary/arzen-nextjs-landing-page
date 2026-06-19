@@ -40,7 +40,7 @@ export default function RootLayout({
         <ResetScrollOnReload />
         <CursorFollower />
         <Header />
-        <main className="flex-1 bg-[#0A0A0A]">{children}</main>
+        <main className="flex-1 bg-[#0A0A0A] text-white">{children}</main>
         <Footer />
       </body>
     </html>
