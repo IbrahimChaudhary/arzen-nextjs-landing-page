@@ -20,7 +20,7 @@
         id="hero"
         className="
           relative
-          min-h-[100dvh]
+          min-h-dvh
           overflow-hidden
           text-white
         "

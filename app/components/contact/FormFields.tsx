@@ -12,6 +12,8 @@ interface TextFieldProps {
   type?: string;
   value: string;
   onChange: (value: string) => void;
+  onBlur?: () => void;
+  error?: string;
 }
 
 export function TextField({
@@ -20,16 +22,31 @@ export function TextField({
   type = "text",
   value,
   onChange,
+  onBlur,
+  error,
 }: TextFieldProps) {
+  const errorId = error ? `${name}-error` : undefined;
   return (
-    <input
-      type={type}
-      name={name}
-      placeholder={placeholder}
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      className="w-full rounded-[10px] bg-[#2B2B2B] px-6 py-5 text-gray text-base text-default placeholder:text-faint outline-none transition-colors focus:bg-[#1a1a1a] focus:ring-1 focus:ring-line-3"
-    />
+    <div>
+      <input
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        onBlur={onBlur}
+        aria-invalid={!!error}
+        aria-describedby={errorId}
+        className={`w-full rounded-[10px] bg-[#2B2B2B] px-6 py-5 text-gray text-base text-default placeholder:text-faint outline-none transition-colors focus:bg-[#1a1a1a] focus:ring-1 ${
+          error ? "ring-1 ring-red-500/70 focus:ring-red-500" : "focus:ring-line-3"
+        }`}
+      />
+      {error && (
+        <p id={errorId} className="mt-1.5 px-1 text-xs text-red-400">
+          {error}
+        </p>
+      )}
+    </div>
   );
 }
 
@@ -42,6 +59,8 @@ interface TextAreaFieldProps {
   placeholder: string;
   value: string;
   onChange: (value: string) => void;
+  onBlur?: () => void;
+  error?: string;
   rows?: number;
 }
 
@@ -50,17 +69,32 @@ export function TextAreaField({
   placeholder,
   value,
   onChange,
+  onBlur,
+  error,
   rows = 6,
 }: TextAreaFieldProps) {
+  const errorId = error ? `${name}-error` : undefined;
   return (
-    <textarea
-      name={name}
-      placeholder={placeholder}
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      rows={rows}
-      className="w-full resize-none rounded-card bg-[#2B2B2B] rounded-[10px] px-6 py-5 text-base leading-relaxed text-default placeholder:text-faint outline-none transition-colors focus:bg-[#1a1a1a] focus:ring-1 focus:ring-line-3"
-    />
+    <div>
+      <textarea
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        onBlur={onBlur}
+        rows={rows}
+        aria-invalid={!!error}
+        aria-describedby={errorId}
+        className={`w-full resize-none rounded-card bg-[#2B2B2B] rounded-[10px] px-6 py-5 text-base leading-relaxed text-default placeholder:text-faint outline-none transition-colors focus:bg-[#1a1a1a] focus:ring-1 ${
+          error ? "ring-1 ring-red-500/70 focus:ring-red-500" : "focus:ring-line-3"
+        }`}
+      />
+      {error && (
+        <p id={errorId} className="mt-1.5 px-1 text-xs text-red-400">
+          {error}
+        </p>
+      )}
+    </div>
   );
 }
 

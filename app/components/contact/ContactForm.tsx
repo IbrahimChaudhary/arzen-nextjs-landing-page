@@ -34,11 +34,55 @@ const INITIAL: FormState = {
  * Holds all field state locally; onSubmit is stubbed (logs payload) so it's
  * drop-in usable — wire it to your API / email handler where indicated.
  */
+type FieldErrors = Partial<Record<keyof FormState, string>>;
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+/** Pure validation: returns a map of field -> message for invalid fields. */
+function validate(data: FormState): FieldErrors {
+  const errors: FieldErrors = {};
+
+  if (!data.name.trim()) errors.name = "Please enter your name.";
+  else if (data.name.trim().length < 2) errors.name = "That name looks too short.";
+
+  if (!data.email.trim()) errors.email = "Please enter your email.";
+  else if (!EMAIL_RE.test(data.email.trim()))
+    errors.email = "Please enter a valid email address.";
+
+  if (!data.details.trim())
+    errors.details = "Tell us a little about your project.";
+  else if (data.details.trim().length < 10)
+    errors.details = "Please add a bit more detail (at least 10 characters).";
+
+  return errors;
+}
+
 export default function ContactForm() {
   const [form, setForm] = useState<FormState>(INITIAL);
+  const [errors, setErrors] = useState<FieldErrors>({});
+  const [touched, setTouched] = useState<Partial<Record<keyof FormState, boolean>>>({});
+  const [submitted, setSubmitted] = useState(false);
+
+  // Re-validate a field once it has been touched or after a submit attempt.
+  const revalidate = (next: FormState, key: keyof FormState) => {
+    if (!touched[key]) return;
+    setErrors((prev) => {
+      const fresh = validate(next);
+      return { ...prev, [key]: fresh[key] };
+    });
+  };
 
   const setField = <K extends keyof FormState>(key: K, value: FormState[K]) =>
-    setForm((prev) => ({ ...prev, [key]: value }));
+    setForm((prev) => {
+      const next = { ...prev, [key]: value };
+      revalidate(next, key);
+      return next;
+    });
+
+  const handleBlur = (key: keyof FormState) => {
+    setTouched((prev) => ({ ...prev, [key]: true }));
+    setErrors((prev) => ({ ...prev, [key]: validate(form)[key] }));
+  };
 
   const toggleFeature = (feature: string) =>
     setForm((prev) => ({
@@ -49,9 +93,53 @@ export default function ContactForm() {
     }));
 
   const handleSubmit = () => {
+    const found = validate(form);
+    setErrors(found);
+    setTouched({ name: true, email: true, details: true });
+
+    if (Object.keys(found).length > 0) {
+      // Focus the first invalid field for keyboard/screen-reader users.
+      const first = Object.keys(found)[0];
+      document.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
+      return;
+    }
+
     // TODO: replace with your submission logic (fetch to an API route, etc.)
     console.log("Contact form submitted:", form);
+    setSubmitted(true);
+    setForm(INITIAL);
+    setErrors({});
+    setTouched({});
   };
+
+  if (submitted) {
+    return (
+      <div className="flex min-h-[480px] flex-col items-center justify-center gap-4 rounded-[12px] bg-[#1A1A1A] p-8 text-center sm:p-10">
+        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-green-text/15 text-green-text">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M5 12l5 5L20 6"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </span>
+        <h3 className="font-display text-2xl text-white">Message sent!</h3>
+        <p className="max-w-sm text-sm text-white/50">
+          Thanks for reaching out — we&apos;ll get back to you within 24 hours.
+        </p>
+        <button
+          type="button"
+          onClick={() => setSubmitted(false)}
+          className="mt-2 rounded-full border border-white/20 px-6 py-2.5 text-sm text-white/80 transition-colors hover:border-white/50 hover:text-white"
+        >
+          Send another message
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="rounded-card-lg bg-[#1A1A1A] rounded-[12px] p-6 sm:p-8 md:p-10">
@@ -62,6 +150,8 @@ export default function ContactForm() {
           placeholder="Your Name"
           value={form.name}
           onChange={(v) => setField("name", v)}
+          onBlur={() => handleBlur("name")}
+          error={errors.name}
         />
         <TextField
           name="email"
@@ -69,6 +159,8 @@ export default function ContactForm() {
           placeholder="Email Address"
           value={form.email}
           onChange={(v) => setField("email", v)}
+          onBlur={() => handleBlur("email")}
+          error={errors.email}
         />
       </div>
 
@@ -119,6 +211,8 @@ export default function ContactForm() {
           placeholder="Describe your project – what are you building, what's the timeline, any details that help us understand your vision…"
           value={form.details}
           onChange={(v) => setField("details", v)}
+          onBlur={() => handleBlur("details")}
+          error={errors.details}
         />
       </div>
 
