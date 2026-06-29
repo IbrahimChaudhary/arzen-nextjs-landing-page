@@ -13,7 +13,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
   const number = String(index).padStart(2, "0");
 
   return (
-    <div className="rounded-3xl border border-[#1f1f1f] bg-[#121212] p-8 md:p-10 lg:p-12">
+    <div className="h-full rounded-3xl border border-[#1f1f1f] bg-[#121212] p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#3a3a3a] hover:shadow-[0_24px_48px_rgba(0,0,0,0.35)] md:p-10 lg:p-12">
       <span className="font-mono text-sm tracking-[0.15em] text-[#7a7a7a]">
         {number}
       </span>

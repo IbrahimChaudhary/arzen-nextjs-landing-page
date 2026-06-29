@@ -1,4 +1,5 @@
 import { contactInfo } from "@/app/data/contact";
+import FadeIn from "@/app/components/animations/FadeIn";
 
 /**
  * Left column: stacked contact-info cards (Email, Call Us, Location, Response).
@@ -6,16 +7,18 @@ import { contactInfo } from "@/app/data/contact";
 export default function ContactInfoPanel() {
   return (
     <div className="flex flex-col gap-[5px]">
-      {contactInfo.map((item) => (
-        <div
+      {contactInfo.map((item, i) => (
+        <FadeIn
           key={item.label}
-          className="flex flex-col justify-center rounded-[15px] bg-[#1A1A1A] p-[28px]"
+          direction="up"
+          delay={i * 0.08}
+          className="flex flex-col justify-center rounded-[15px] bg-[#1A1A1A] p-[28px] transition-colors duration-300 hover:bg-[#222]"
         >
           <span className="text-xs text-gray">{item.label}</span>
           <span className="mt-2 font-display text-xs font-normal">
             {item.value}
           </span>
-        </div>
+        </FadeIn>
       ))}
     </div>
   );

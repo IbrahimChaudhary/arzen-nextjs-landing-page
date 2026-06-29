@@ -1,5 +1,6 @@
 import { processSteps } from "@/app/data/process";
 import SectionLabel from "./SectionLabel";
+import FadeIn from "@/app/components/animations/FadeIn";
 
 const GRADIENT_TEXT =
   "bg-gradient-to-r from-[#5fbf5a] via-[#a9d17a] to-[#e89bb0] bg-clip-text text-transparent";
@@ -9,11 +10,13 @@ export default function ProcessSection() {
 
   return (
     <section className="mb-20 md:mb-28">
-      <div className="mb-8">
+      <FadeIn direction="up" className="mb-8">
         <SectionLabel>Our Process</SectionLabel>
-      </div>
+      </FadeIn>
 
-      <h2 className="mb-10 font-display text-3xl font-normal">How we work.</h2>
+      <FadeIn direction="up" delay={0.1}>
+        <h2 className="mb-10 font-display text-3xl font-normal">How we work.</h2>
+      </FadeIn>
 
       <div className="grid grid-cols-1 overflow-hidden rounded-2xl border border-[#1f1f1f] bg-[#0d0d0d] sm:grid-cols-2 lg:grid-cols-4">
         {processSteps.map((step, i) => {
@@ -34,12 +37,14 @@ export default function ProcessSection() {
           ].join(" ");
 
           return (
-            <div
+            <FadeIn
               key={step.title}
-              className={`flex flex-col gap-[8.76px] p-7 ${mobileBorder} ${smBorder} ${lgBorder}`}
+              direction="up"
+              delay={i * 0.08}
+              className={`group flex flex-col gap-[8.76px] p-7 transition-colors duration-300 hover:bg-[#121212] ${mobileBorder} ${smBorder} ${lgBorder}`}
             >
               <span
-                className={`font-display text-3xl font-extrabold ${GRADIENT_TEXT}`}
+                className={`font-display text-3xl font-extrabold transition-transform duration-300 group-hover:scale-110 ${GRADIENT_TEXT}`}
               >
                 {number}
               </span>
@@ -49,7 +54,7 @@ export default function ProcessSection() {
               <p className="mt-3 text-sm leading-[1.6] text-[#8a8a8a]">
                 {step.description}
               </p>
-            </div>
+            </FadeIn>
           );
         })}
       </div>
