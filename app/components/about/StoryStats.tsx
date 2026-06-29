@@ -16,13 +16,13 @@ export default function StoryStats() {
           <div
             key={stat.label}
             className={[
-              "group flex flex-col items-center justify-center px-6 py-14 text-center transition-colors duration-300 hover:bg-[#161616]",
+              "flex flex-col items-center justify-center px-6 py-14 text-center",
               isLeftCol ? "border-r border-[#2a2a2a]" : "",
               isTopRow ? "border-b border-[#2a2a2a]" : "",
             ].join(" ")}
           >
             <span
-              className={`font-sans text-4xl font-extrabold leading-none tracking-[-0.02em] transition-transform duration-300 group-hover:scale-105 md:text-5xl ${GRADIENT_TEXT}`}
+              className={`font-sans text-4xl font-extrabold leading-none tracking-[-0.02em] md:text-5xl ${GRADIENT_TEXT}`}
             >
               {stat.value}
             </span>

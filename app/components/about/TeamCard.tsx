@@ -15,9 +15,9 @@ const ACCENT_CLASSES: Record<AvatarAccent, string> = {
  */
 export default function TeamCard({ member }: TeamCardProps) {
   return (
-    <div className="group h-full px-6 py-8 transition-colors duration-300 hover:bg-[#141414]">
+    <div className="px-6 py-8">
       <div
-        className={`flex h-11 w-11 items-center justify-center rounded-full border text-xs font-semibold transition-transform duration-300 group-hover:scale-110 ${ACCENT_CLASSES[member.accent]}`}
+        className={`flex h-11 w-11 items-center justify-center rounded-full border text-xs font-semibold ${ACCENT_CLASSES[member.accent]}`}
       >
         {member.initials}
       </div>

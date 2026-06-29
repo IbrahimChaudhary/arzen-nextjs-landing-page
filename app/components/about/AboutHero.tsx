@@ -1,30 +1,25 @@
 import Link from "next/link";
 import SDG from "../ui/SDG";
-import FadeIn from "@/app/components/animations/FadeIn";
 
 
 export default function AboutHero() {
   return (
     <header className="mb-20 flex flex-col gap-[40px]">
-      <FadeIn direction="up" className="mb-10">
+      <div className="mb-10">
         <SDG title="Who We Are" />
-      </FadeIn>
+      </div>
 
-      <FadeIn direction="up" delay={0.1}>
-        <h1 className="font-display leading-[1.04] text-default text-[clamp(2rem,5vw,53px)] max-w-3xl">
-          We build digital products that drive real growth.
-        </h1>
-      </FadeIn>
+      <h1 className="font-display leading-[1.04] text-default text-[clamp(2rem,5vw,53px)] max-w-3xl">
+        We build digital products that drive real growth.
+      </h1>
 
-      <FadeIn direction="up" delay={0.2}>
-        <p className="mt-10 max-w-2xl text-lg leading-[1.7] text-text-white md:text-xl">
-          Arzen Inc is a software house founded on the belief that great
-          technology and great design are inseparable. We partner with startups to
-          craft digital products that perform and endure.
-        </p>
-      </FadeIn>
+      <p className="mt-10 max-w-2xl text-lg leading-[1.7] text-text-white md:text-xl">
+        Arzen Inc is a software house founded on the belief that great
+        technology and great design are inseparable. We partner with startups to
+        craft digital products that perform and endure.
+      </p>
 
-      <FadeIn direction="up" delay={0.3} className="mt-10 flex flex-wrap gap-4">
+      <div className="mt-10 flex flex-wrap gap-4">
         <Link href="/work">
           <button
             type="button"
@@ -41,7 +36,7 @@ export default function AboutHero() {
             View Portfolio
           </button>
         </Link>
-      </FadeIn>
+      </div>
     </header>
   );
 }

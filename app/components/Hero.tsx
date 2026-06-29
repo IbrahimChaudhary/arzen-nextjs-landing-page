@@ -1,5 +1,4 @@
   import FloatingPills from "./animations/FloatingPills";
-  import HeroBackground from "./animations/HeroBackground";
   import SDG from "./ui/SDG";
   import FadeIn from "@/app/components/animations/FadeIn";
   import Link from "next/link";
@@ -31,8 +30,6 @@
           backgroundRepeat: "no-repeat",
         }}
       >
-        <HeroBackground />
-
         <div className="hero-glow" />
 
         <div
