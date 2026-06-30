@@ -30,7 +30,7 @@ export default function Header() {
             alt="Arzen"
             width={170}
             height={25}
-            className="w-[84px] md:w-[100px] h-auto"
+            className="w-25 md:w-31 h-auto"
           />
         </Link>
         <nav className="hidden md:flex items-center gap-2 relative">
@@ -57,8 +57,10 @@ export default function Header() {
                 )}
 
                 <span
-                  className={`relative z-10 transition-colors ${
-                    isActive ? "text-white" : "text-gray"
+                  className={`relative z-10 inline-block transition-all duration-300 ${
+                    isActive
+                      ? "scale-140 text-white"
+                      : "scale-100 text-gray hover:scale-100 hover:text-white/80"
                   }`}
                 >
                   {item.label}
