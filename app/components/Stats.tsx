@@ -10,9 +10,9 @@ const STATS = [
 
 export default function Stats() {
   return (
-    <section className="bg-[#111111] px-6 md:px-16 lg:px-20 py-12 md:py-20">
+    <section className="bg-[#111111] border-y border-border px-6 md:px-16 lg:px-20 py-12 md:py-20">
       <FadeIn direction="up">
-        <div className="rounded-2xl bg-[#141414] border border-white/10 overflow-hidden">
+        <div className="rounded-2xl bg-[#141414] border border-white/10 overflow-hidden max-w-5xl mx-auto">
           {/* Decorative side bars visible on md+ */}
           <div className="flex">
             <div className="hidden md:block w-10 lg:w-14 shrink-0 bg-[#2F2F2F]" />
