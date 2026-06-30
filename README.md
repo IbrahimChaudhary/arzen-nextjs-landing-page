@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Arzen
+
+> **We Speak Code. We Deliver Growth.**
+
+Arzen Inc is a software house crafting digital products, brands, and experiences that drive real business impact. This repository contains the official Arzen website — a marketing and portfolio site built with Next.js.
+
+Trusted by 50+ clients worldwide, we help startups and growing businesses build, launch, and scale with modern technology and creative design.
+
+## Services
+
+| Service | What we do |
+| --- | --- |
+| **Web Development** | High-performance, secure, and scalable websites and web applications built with modern tech stacks. |
+| **Web UI/UX Design** | User-centred interfaces that convert visitors into customers — Figma-to-code with pixel-perfect precision. |
+| **Branding** | Visual identities that communicate your values and make your brand instantly recognisable. |
+| **Digital Growth** | SEO, performance, and data-driven strategies that compound over time and grow your business. |
+
+## Tech Stack
+
+- **[Next.js](https://nextjs.org) 16** (App Router)
+- **[React](https://react.dev) 19**
+- **[TypeScript](https://www.typescriptlang.org)**
+- **[Tailwind CSS](https://tailwindcss.com) v4**
+- **[Framer Motion](https://www.framer.com/motion/)** for animations
+- **[React Icons](https://react-icons.github.io/react-icons/)**
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result. The page auto-updates as you edit files under `app/`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Create a production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | Run ESLint |
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/
+├── components/        # Reusable UI: Hero, Features, Stats, Footer, animations, etc.
+├── data/              # Static content (contact info, service options)
+├── about/             # About page
+├── work/              # Services / work page
+├── portfolio/         # Portfolio showcase
+├── projects/          # Projects listing
+├── contact/           # Contact page & form
+├── blog/              # Blog
+├── careers/           # Careers
+├── privacy-policy/    # Privacy policy
+├── terms/             # Terms of service
+├── layout.tsx         # Root layout (header, footer, fonts)
+└── page.tsx           # Homepage
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contact
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Email:** hello@arzen.com
+- **Phone:** +1 (234) 567-8900
+- **Location:** Remote · Worldwide
+- **Response time:** Within 24 hours
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The site is optimised for deployment on the [Vercel Platform](https://vercel.com/new). See the [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying) for details.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+© Arzen Inc. All rights reserved.
