@@ -9,7 +9,7 @@ export default function AboutHero() {
         <SDG title="Who We Are" />
       </div>
 
-      <h1 className="font-display leading-[1.04] text-default text-[clamp(2rem,5vw,53px)] max-w-3xl">
+      <h1 className="section-title max-w-3xl">
         We build digital products that drive real growth.
       </h1>
 

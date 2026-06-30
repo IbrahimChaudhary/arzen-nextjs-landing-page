@@ -164,15 +164,15 @@ const Portfolio = () => {
     activeTab === "All"
       ? projects
       : projects.filter((p) =>
-          p.category.toLowerCase().includes(activeTab.toLowerCase()),
-        );
+        p.category.toLowerCase().includes(activeTab.toLowerCase()),
+      );
 
   return (
     <PageShell className="flex flex-col gap-12">
       {/* Header */}
       <SDG title="Our Work" />
       <div className="flex flex-col gap-5">
-        <h1 className="font-display font-semibold text-[53px]">
+        <h1 className="section-title">
           Selected Projects
         </h1>
 
@@ -190,11 +190,10 @@ const Portfolio = () => {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-4 py-2 rounded-full text-xs transition-all border border-[#535353] ${
-                  isActive
+                className={`px-4 py-2 rounded-full text-xs transition-all border border-[#535353] ${isActive
                     ? "bg-[#1A1A1A] border border-[#535353] text-white"
                     : "text-gray hover:text-white"
-                }`}
+                  }`}
               >
                 {tab}
               </button>

@@ -41,7 +41,7 @@ export default function Projects() {
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-4 md:mb-[38px]">
             <div className="flex flex-col gap-4">
               <SDG title="Our Work" />
-              <h2 className="font-display text-[38px] md:text-[53px] leading-none tracking-[-0.04em]">
+              <h2 className="section-title">
                 Selected Projects
               </h2>
             </div>
@@ -66,7 +66,7 @@ export default function Projects() {
 
         {/* CTA banner */}
         <FadeIn direction="up" delay={0.15}>
-          <div className="relative overflow-hidden rounded-[28px] border border-border gradient-bg px-7 md:px-10 py-10 md:py-14">
+          <div className="relative overflow-hidden rounded-[12px] border border-border gradient-bg px-7 md:px-10 py-10 md:py-14">
             <div className="flex flex-col gap-5 relative z-10">
               <SDG title="Let's Work Together" className="bg-[#0E1911] border-none" />
 

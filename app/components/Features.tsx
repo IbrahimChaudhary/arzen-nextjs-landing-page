@@ -39,8 +39,8 @@ export default function Features() {
       </FadeIn>
 
       <FadeIn direction="up" delay={0.1}>
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mt-6 mb-10 md:mb-[38px]">
-          <h2 className="font-display text-[38px] md:text-[53px] leading-tight">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mt-6 mb-10 md:mb-[38px]">
+          <h2 className="section-title">
             End-to-end<br />Digital Solutions
           </h2>
           <p className="text-sm text-white/70 max-w-full md:max-w-[370px] leading-relaxed">

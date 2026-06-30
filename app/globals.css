@@ -98,18 +98,37 @@
    Components
 ===================================================== */
 
-@layer components {
-  
-}
 
 @layer components {
 
+  /* =====================================================
+     Typography
+  ===================================================== */
+
+
+
+  /* Section heading — Archivo Black 53/55, responsive down to 2rem */
   .section-title {
-    font-family: var(--font-display);
-    line-height: 1.08;
-    letter-spacing: normal;
-    font-size: clamp(1.25rem, 4vw, 26px);
+    @apply font-display font-normal text-[clamp(2rem,6vw,53px)] leading-[1.04] tracking-normal;
   }
+
+  /* Card heading — used in ValuesSection, TeamCard */
+  .heading-card {
+    @apply font-display text-xl font-bold text-white;
+  }
+
+  /* Body & supporting text */
+
+  /* Muted card body — used in ValuesSection, ProcessSection, WorkSection */
+  .body-muted {
+    @apply text-sm leading-[1.6] text-[#8a8a8a];
+  }
+
+  /* Small meta / labels — used in Contact, Features, Footer, Hero, Stats */
+  .text-meta {
+    @apply text-xs text-white/50;
+  }
+
   /* Primary Button */
 
   .btn-primary {

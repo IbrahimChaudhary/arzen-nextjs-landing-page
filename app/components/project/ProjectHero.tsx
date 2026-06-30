@@ -10,7 +10,7 @@ export default function ProjectHero() {
         <SDG title="All Projects" />
       </div>
 
-      <h1 className="font-display text-[53px] font-normal leading-[1.05] tracking-[-0.02em] text-white sm:text-6xl">
+      <h1 className="section-title">
         Every project tells a story.
       </h1>
 

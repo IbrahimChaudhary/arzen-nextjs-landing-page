@@ -6,7 +6,7 @@ export default function ContactHero() {
       <div className="mb-10">
         <SDG title="Start a Project" />
       </div>
-      <h1 className="font-display mb-10 text-4xl font-normal text-[53px]">
+      <h1 className="section-title">
         Let&apos;s build something great.
       </h1>
 

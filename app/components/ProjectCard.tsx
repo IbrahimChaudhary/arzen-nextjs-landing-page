@@ -20,7 +20,7 @@ export default function ProjectCard({
       <motion.div
         whileHover={{ y: -6, boxShadow: "0 20px 40px rgba(0,0,0,0.4)" }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className="group overflow-hidden rounded-[18px] border border-border bg-[#111] hover:border-white/20 transition-colors duration-300"
+        className="group overflow-hidden rounded-[12px] border border-border bg-[#111] hover:border-white/20 transition-colors duration-300"
       >
         <div
           className={`${project.bg} h-[200px] md:h-[258px] flex items-center justify-center relative overflow-hidden`}
