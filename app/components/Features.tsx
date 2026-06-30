@@ -35,7 +35,7 @@ export default function Features() {
   return (
     <section id="services" className="bg-[#0d0d0d] text-white py-20 md:py-[104px] px-6 md:px-16 lg:px-[200px]">
       <FadeIn direction="up">
-        <SDG />
+        <SDG className="border-none" />
       </FadeIn>
 
       <FadeIn direction="up" delay={0.1}>

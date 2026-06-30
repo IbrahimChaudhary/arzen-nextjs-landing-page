@@ -20,7 +20,7 @@ export default function Contact() {
 
         {/* ── Left ── */}
         <FadeIn direction="right" className="flex flex-col gap-5 lg:max-w-[340px]">
-          <SDG title="Get In Touch" />
+          <SDG title="Get In Touch" className="border-none" />
           <h2 className="font-display text-[32px] md:text-[40px] leading-tight">
             Let's Start a Conversation
           </h2>

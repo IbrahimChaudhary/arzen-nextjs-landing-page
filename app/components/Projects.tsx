@@ -40,7 +40,7 @@ export default function Projects() {
         <FadeIn direction="up">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-4 md:mb-[38px]">
             <div className="flex flex-col gap-4">
-              <SDG title="Our Work" />
+              <SDG title="Our Work" className="border-none" />
               <h2 className="section-title">
                 Selected Projects
               </h2>
