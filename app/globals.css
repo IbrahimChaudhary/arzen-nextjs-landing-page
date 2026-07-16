@@ -74,6 +74,22 @@
     );
   }
 
+  /* The gradient definition */
+.text-gradient-custom {
+  background: linear-gradient(
+    90deg,
+    #318f43 0%,
+    #6cc74e 50%,
+    #b4ba7a 67%,
+    #da909d 84%
+  );
+  /* Clips the background to the text area */
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Makes the text transparent so the background shows through */
+  color: transparent;
+}
+
 
   .text-btn-gradient {
     background: linear-gradient(
