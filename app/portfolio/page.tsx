@@ -3,7 +3,7 @@ import { useState } from "react";
 import ProjectCard from "../components/ProjectCard";
 import SDG from "../components/ui/SDG";
 import PageShell from "../components/ui/PageShell";
-import Project from "../types/project";
+import { Project } from "@/app/data/projects";
 import { projects } from "../data/projects"; // Adjust relative path if needed
 
 const tabs = ["All", "Web Dev", "Design", "SaaS", "Branding"];
@@ -60,7 +60,7 @@ const Portfolio = () => {
           .map((project) => (
             <ProjectCard
               key={project.slug}
-              project={project as Project & { slug: string }}
+             project={project}
               caseStudy
               description={project.description}
             />

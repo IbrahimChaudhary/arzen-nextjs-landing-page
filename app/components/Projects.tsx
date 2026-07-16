@@ -1,37 +1,14 @@
 import SDG from "./ui/SDG";
 import FadeIn from "@/app/components/animations/FadeIn";
 import ProjectCard from "./ProjectCard";
-import Project from "../types/project";
 import Link from "next/link";
+import { projects } from "@/app/data/projects"; // Adjust this import path if needed
 
-const PROJECTS: Project[] = [
-  {
-    title: "kanba — Project Management SaaS",
-    category: "Web Development · SaaS Platform",
-    logo: "kanba",
-    bg: "bg-[#03160B]",
-    text: "text-[#56D364]",
-    size: "large",
-  },
-  {
-    title: "Ideaa Landing Page",
-    category: "UI/UX Design · Landing Page",
-    logo: "Ideaa.",
-    bg: "bg-[#181736]",
-    text: "text-[#818CF8]",
-    size: "small",
-  },
-  {
-    title: "Circle App Dashboard",
-    category: "Web Application · Dashboard",
-    logo: "circle",
-    bg: "bg-[#250A18]",
-    text: "text-[#EC4899]",
-    size: "small",
-  },
-];
 
 export default function Projects() {
+  // Extract only the first 3 projects for the homepage preview
+  const featuredProjects = projects.slice(0, 3);
+
   return (
     <section id="work" className="bg-[#0D0D0D] text-white py-20 md:py-[104px] px-6 md:px-16 lg:px-[244px]">
       <div className="max-w-[1400px] mx-auto flex flex-col gap-6">
@@ -52,13 +29,15 @@ export default function Projects() {
         </FadeIn>
 
         {/* Cards */}
-        <FadeIn direction="up" delay={0.1}>
-          <ProjectCard project={PROJECTS[0]} />
-        </FadeIn>
+        {featuredProjects.length > 0 && (
+          <FadeIn direction="up" delay={0.1}>
+            <ProjectCard project={featuredProjects[0]} />
+          </FadeIn>
+        )}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {PROJECTS.slice(1).map((p, i) => (
-            <FadeIn key={p.title} direction="up" delay={0.1 + i * 0.08}>
+          {featuredProjects.slice(1).map((p, i) => (
+            <FadeIn key={p.slug || p.title} direction="up" delay={0.1 + i * 0.08}>
               <ProjectCard project={p} />
             </FadeIn>
           ))}
@@ -66,13 +45,13 @@ export default function Projects() {
 
         {/* CTA banner */}
         <FadeIn direction="up" delay={0.15}>
-          <div className="relative overflow-hidden rounded-[12px] border border-border gradient-bg px-7 md:px-10 py-10 md:py-14">
+          <div className="relative overflow-hidden rounded-[12px] border border-border gradient-bg px-7 md:px-10 py-10 md:py-14 mt-10">
             <div className="flex flex-col gap-5 relative z-10">
               <SDG title="Let's Work Together" className="bg-[#0E1911] border-none" />
 
               <div className="font-display leading-[0.95] tracking-[-0.04em]">
                 <h3 className="text-[32px] md:text-[52px] text-white">Let's Build Something</h3>
-                <span className="text-btn-gradient text-[32px] md:text-[52px]">Powerful Together</span>
+                <span className="text-gradient-custom text-[32px] md:text-[52px]">Powerful Together</span>
               </div>
 
               <p className="max-w-[480px] text-sm leading-[24px] text-white/50">

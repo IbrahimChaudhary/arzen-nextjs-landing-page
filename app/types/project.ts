@@ -1,11 +1,11 @@
 export default interface Project {
-  slug: string; // <-- Added this so project.slug works perfectly!
-  bg: string;
-  text: string;
+  slug?: string; // <-- Added this so project.slug works perfectly!
+  bg?: string;
+  text?: string;
   description?: string;
   size?: "large" | "small";
   image?: string;
-  category: string;
+  category?: string;
   title: string;
   tags?: string[];
   status?: string;

@@ -23,7 +23,7 @@ export default function ProjectModal({
   onStartSimilar,
 }: ProjectModalProps) {
   const tags =
-    project.tags ?? project.category.split("·").map((item) => item.trim());
+    project.tags ?? (project.category ? project.category.split("·").map((item) => item.trim()) : []);
   const status =
     project.status ?? tags.find((tag) => tag.toLowerCase() === "live");
   const stack = project.caseStudy?.tech ?? [];
@@ -48,7 +48,7 @@ export default function ProjectModal({
               <span
                 className={`font-sans text-[70px] sm:text-[96px] font-bold leading-none tracking-[-0.04em] ${GRADIENT_TEXT}`}
               >
-                {project.logo}
+                {project.title}
               </span>
             </div>
             <div className="flex flex-col gap-8 sm:gap-[50px]">

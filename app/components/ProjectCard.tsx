@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import Project from "../types/project";
+import { Project } from "@/app/data/projects";
 import Link from "next/link";
 import Image from "next/image"; // 1. Import Next Image
 

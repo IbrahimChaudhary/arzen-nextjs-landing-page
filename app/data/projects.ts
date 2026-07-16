@@ -1,5 +1,6 @@
 export type ProjectStatus = "Live" | "Delivered" | "Ongoing";
 
+
 export interface CaseStudyStat {
   value: string;
   label: string;

@@ -27,7 +27,7 @@ export default function ProjectRow({ project, index }: ProjectRowProps) {
           {project.title}
         </h3>
         <p className="mt-1.5 text-[13px] tracking-[0.1em] text-text-white">
-          {project.stack.join("  ·  ")}
+          {(project.stack || []).join("  ·  ")}
         </p>
       </div>
 
