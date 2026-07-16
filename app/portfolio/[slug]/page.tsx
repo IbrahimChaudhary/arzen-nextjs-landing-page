@@ -140,7 +140,7 @@ export default async function CaseStudyPage({
           </div>
         ) : null}
 
-        {/* 6. Brand Color Palette Section — Only render if colorPalette image exists */}
+        {/* 6 Brand Color Palette Section — Only render if colorPalette image exists */}
         {caseStudy.colors && caseStudy.colors.length > 0 && caseStudy.images?.colorPalette ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-24">
             <div className="w-full aspect-[4/5] bg-[#111] rounded-[10px] border border-border overflow-hidden relative">
