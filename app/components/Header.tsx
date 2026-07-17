@@ -31,6 +31,7 @@ export default function Header() {
             width={170}
             height={25}
             className="w-25 md:w-31 h-auto"
+            priority
           />
         </Link>
         <nav className="hidden md:flex items-center gap-2 relative">
