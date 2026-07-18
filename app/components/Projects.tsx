@@ -59,9 +59,19 @@ export default function Projects() {
                 secure and scalable. Built with modern tech stacks.
               </p>
 
-              <button type="button" className="btn-primary inline-flex items-center justify-center w-fit h-11 px-6 rounded-full bg-btn-gradient text-black text-sm font-semibold hover:scale-[1.02] transition-transform">
-                Start Your Project
-              </button>
+              <a
+  href="/contact"
+  // I removed "btn-primary" from the beginning of this line:
+  className="group/btn relative overflow-hidden inline-flex items-center justify-center w-fit h-11 px-6 rounded-full bg-[#4ADE80] text-sm font-semibold text-black transition-transform hover:scale-[1.02]"
+>
+  {/* Smooth Gradient Fade Layer utilizing your global CSS class */}
+  <span className="absolute inset-0 bg-btn-gradient opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100" />
+  
+  {/* Button Content lifted above the background */}
+  <span className="relative z-10 flex items-center justify-center gap-2">
+    Start Your Project
+  </span>
+</a>
             </div>
           </div>
         </FadeIn>

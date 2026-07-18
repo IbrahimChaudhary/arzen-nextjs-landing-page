@@ -151,6 +151,7 @@ export default async function CaseStudyPage({
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 448px"
                 quality={100}
+                unoptimized
               />
             </div>
 
@@ -181,17 +182,21 @@ export default async function CaseStudyPage({
         ) : null}
 
       
-       {/* 7. Showcase — Image #4: a single tall/long image */}
+       {/* 7. Showcase — Image #4: a single tall/long image.
+           Uses a plain <img> instead of next/image because this image's
+           height varies per project (some short, some very tall stacked
+           mockups), so there's no single width/height ratio that fits all
+           of them. A plain <img> with w-full h-auto scales correctly for
+           any aspect ratio without needing Next's image optimizer, which
+           was failing on the very tall variants. */}
         {caseStudy.images?.showcase && (
           <div className="w-full bg-[#111] rounded-[10px] border border-border overflow-hidden mb-24 flex flex-col">
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src={caseStudy.images.showcase}
               alt={`${caseStudy.title} — showcase`}
-              width={1200}
-              height={5000} // High base height to satisfy Next.js sizing requirements
-              className="w-full h-auto" // Forces proportional scaling based on width
-              sizes="(max-width: 768px) 100vw, 896px"
-              quality={100}
+              className="w-full h-auto block"
+              loading="lazy"
             />
           </div>
         )}
@@ -231,4 +236,4 @@ export default async function CaseStudyPage({
       </main>
     </PageShell>
   );
-} 
+}
