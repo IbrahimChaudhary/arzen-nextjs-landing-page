@@ -103,7 +103,7 @@ export const projects: Project[] = [
       images: {
         philosophy: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784225973/f168ad43a4b4175401f7587e1d4b2b3f024a215e_umbek5.png",
         colorPalette: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784225971/8c1ad3e04b75e4a9ef32a80aa904d683145c9d31_ggt5xn.png",
-        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784225984/89e24277f387c629c41621298a876a625684269d_jii2fd.png", 
+        showcase: "/sc1.1.png", 
       },
     },
   },
@@ -151,7 +151,7 @@ export const projects: Project[] = [
       images: {
         philosophy: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784225972/430c98c47f04bae97f7d2a6d3284c0e03284cb04_rabbr3.png",   
         colorPalette: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784225972/eaaad8366823b1a22adb15b37b24789baafc2c7a_spymor.png", 
-        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784225973/75f36cb06d42830405a5d61c5104760473a150b5_exm8ec.png",     
+        showcase: "/sc2.png",     
       },
     },
   },
@@ -216,7 +216,7 @@ export const projects: Project[] = [
       images: {
         philosophy: "",   
         colorPalette: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784225973/f05b0422bcd7db5365156d90d861c12d29229198_yvqifw.png", 
-        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784225974/420e0fde3fafd5d4570f283aefdb0432eac35488_1_th08eh.png",     
+        showcase: "/sc4.png",     
       },
     },
   },
@@ -275,7 +275,7 @@ export const projects: Project[] = [
       images: {
         philosophy: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784225974/71becd36b630365627b8ca267895f9eeb2165366_nq9uwk.png",   
         colorPalette: "", 
-        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784225974/e7ef98841b4251bc2c13ae1aa6ca38b4aae465c3_pmgplm.png",     
+        showcase: "/sc3.png",     
       },
     },
   },
@@ -329,7 +329,7 @@ export const projects: Project[] = [
       images: {
         philosophy: "",   
         colorPalette: "", 
-        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784225980/633d7e7be2c0377f0d391841238ed38d8af783f5_xufapy.png",     
+        showcase: "/sc6.jpg",     
       },
     },
   },
@@ -374,7 +374,7 @@ export const projects: Project[] = [
       images: {
         philosophy: "",   
         colorPalette: "", 
-        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784225980/6275a26c7fabb64dcc074b067e033cc385a11778_n9xic8.png",     
+        showcase: "/sc9.jpg",     
       }
     }
   },
@@ -419,7 +419,7 @@ export const projects: Project[] = [
       images: {
         philosophy: "",   
         colorPalette: "", 
-        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784225978/0b7dfb0f070f44588a007d70a1ce703204ee9c9b_hes3kf.png",     
+        showcase: "/sc8.jpg",     
       }
     }
   },
@@ -467,7 +467,7 @@ export const projects: Project[] = [
       images: {
         philosophy: "",   
         colorPalette: "", 
-        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784227690/5dce1072c94b360576f803e994c7a2b5e988d5c0_ykrotx.png",     
+        showcase: "/sc7.jpg",     
       }
     }
   },
@@ -512,8 +512,233 @@ export const projects: Project[] = [
       images: {
         philosophy: "",   
         colorPalette: "", 
-        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784225981/cbeaf0929cd71ad326391561dc6e8bb68b82fabc_cdgcwm.png",     
+        showcase: "/sc5.5.jpg",     
       }
     }
   },
+  {
+    slug: "aurotry",
+    title: "AuroTry",
+    status: "Live",
+    category: "Web Development · Saas Platform",
+    description: "A showcase of digital products and brand experiences we've built for our clients.",
+    tags: ["Branding", "Identity", "Delivered", "Web Development", "SaaS Platform", "Logo Design", "Typography", "Color System", "Iconography"],
+    image: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557012/AT_01_gnc5hw.jpg",
+    caseStudy: {
+      title: "AuroTry",
+      intro: "A showcase of digital products and brand experiences we've built for our clients.",
+      details: "", // Added to satisfy mandatory interface requirement
+      stats: [
+        { value: "3wk", label: "Delivery Time" },
+        { value: "5", label: "Concepts Explored" },
+        { value: "100%", label: "Client Satisfaction" }
+      ],
+      colors: [],
+      images: {
+        philosophy: "",
+        colorPalette: "",
+        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557701/Frame_1984079421_kue2p0.png"
+      }
+    }
+  },
+  {
+    slug: "blake-ui",
+    title: "Blake/Ui",
+    status: "Live",
+    category: "Web Development · Saas Platform",
+    description: "A showcase of digital products and brand experiences we've built for our clients.",
+    tags: ["Branding", "Identity", "Delivered", "Web Development", "SaaS Platform", "Logo Design", "Typography", "Color System", "Iconography"],
+    image: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784556989/BU_03_a2thsm.jpg",
+    caseStudy: {
+      title: "Blake/Ui",
+      intro: "A showcase of digital products and brand experiences we've built for our clients.",
+      details: "", // Added to satisfy mandatory interface requirement
+      stats: [
+        { value: "3wk", label: "Delivery Time" },
+        { value: "5", label: "Concepts Explored" },
+        { value: "100%", label: "Client Satisfaction" }
+      ],
+      colors: [],
+      images: {
+        philosophy: "",
+        colorPalette: "",
+        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557686/Frame_1984079378_ybymq0.png"
+      }
+    }
+  },
+  {
+    slug: "cost-savvy",
+    title: "Cost Savvy",
+    status: "Live",
+    category: "Web Development · Saas Platform",
+    description: "A showcase of digital products and brand experiences we've built for our clients.",
+    tags: ["Branding", "Identity", "Delivered", "Web Development", "SaaS Platform", "Logo Design", "Typography", "Color System", "Iconography"],
+    image: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784556968/Cost_Savvy_02_k16x7q.jpg",
+    caseStudy: {
+      title: "Cost Savvy",
+      intro: "A showcase of digital products and brand experiences we've built for our clients.",
+      details: "", // Added to satisfy mandatory interface requirement
+      stats: [
+        { value: "3wk", label: "Delivery Time" },
+        { value: "5", label: "Concepts Explored" },
+        { value: "100%", label: "Client Satisfaction" }
+      ],
+      colors: [],
+      images: {
+        philosophy: "",
+        colorPalette: "",
+        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557671/Frame_1984079378_1_fjygft.png"
+      }
+    }
+  },
+  {
+    slug: "d360",
+    title: "D360",
+    status: "Live",
+    category: "Web Development · Saas Platform",
+    description: "A showcase of digital products and brand experiences we've built for our clients.",
+    tags: ["Branding", "Identity", "Delivered", "Web Development", "SaaS Platform", "Logo Design", "Typography", "Color System", "Iconography"],
+    image: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784556946/D3_04_ulizyx.jpg",
+    caseStudy: {
+      title: "D360",
+      intro: "A showcase of digital products and brand experiences we've built for our clients.",
+      details: "", // Added to satisfy mandatory interface requirement
+      stats: [
+        { value: "3wk", label: "Delivery Time" },
+        { value: "5", label: "Concepts Explored" },
+        { value: "100%", label: "Client Satisfaction" }
+      ],
+      colors: [],
+      images: {
+        philosophy: "",
+        colorPalette: "",
+        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557650/Frame_1984079378_2x_lrswwe.png"
+      }
+    }
+  },
+  {
+    slug: "flyfim",
+    title: "Flyfim",
+    status: "Live",
+    category: "Web Development · Saas Platform",
+    description: "A showcase of digital products and brand experiences we've built for our clients.",
+    tags: ["Branding", "Identity", "Delivered", "Web Development", "SaaS Platform", "Logo Design", "Typography", "Color System", "Iconography"],
+    image: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784556922/FF_04_slanvn.jpg",
+    caseStudy: {
+      title: "Flyfim",
+      intro: "A showcase of digital products and brand experiences we've built for our clients.",
+      details: "", // Added to satisfy mandatory interface requirement
+      stats: [
+        { value: "3wk", label: "Delivery Time" },
+        { value: "5", label: "Concepts Explored" },
+        { value: "100%", label: "Client Satisfaction" }
+      ],
+      colors: [],
+      images: {
+        philosophy: "",
+        colorPalette: "",
+        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557600/Frame_1984079378_2_kke3ve.png"
+      }
+    }
+  },
+  {
+    slug: "meter",
+    title: "meter",
+    status: "Live",
+    category: "Web Development · Saas Platform",
+    description: "A showcase of digital products and brand experiences we've built for our clients.",
+    tags: ["Branding", "Identity", "Delivered", "Web Development", "SaaS Platform", "Logo Design", "Typography", "Color System", "Iconography"],
+    image: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784556902/M_04_dqfh55.jpg",
+    caseStudy: {
+      title: "meter",
+      intro: "A showcase of digital products and brand experiences we've built for our clients.",
+      details: "", // Added to satisfy mandatory interface requirement
+      stats: [
+        { value: "3wk", label: "Delivery Time" },
+        { value: "5", label: "Concepts Explored" },
+        { value: "100%", label: "Client Satisfaction" }
+      ],
+      colors: [],
+      images: {
+        philosophy: "",
+        colorPalette: "",
+        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557584/Frame_1984079421_1_fnd6ck.png"
+      }
+    }
+  },
+  {
+    slug: "royal-tap",
+    title: "Royal Tap",
+    status: "Live",
+    category: "Web Development · Saas Platform",
+    description: "A showcase of digital products and brand experiences we've built for our clients.",
+    tags: ["Branding", "Identity", "Delivered", "Web Development", "SaaS Platform", "Logo Design", "Typography", "Color System", "Iconography"],
+    image: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784556865/Rt_02_yg8vzn.jpg",
+    caseStudy: {
+      title: "Royal Tap",
+      intro: "A showcase of digital products and brand experiences we've built for our clients.",
+      details: "", // Added to satisfy mandatory interface requirement
+      stats: [
+        { value: "3wk", label: "Delivery Time" },
+        { value: "5", label: "Concepts Explored" },
+        { value: "100%", label: "Client Satisfaction" }
+      ],
+      colors: [],
+      images: {
+        philosophy: "",
+        colorPalette: "",
+        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557570/Frame_1984079378_3_d0dxts.png"
+      }
+    }
+  },
+  {
+    slug: "solve-agripark",
+    title: "Solve Agripark",
+    status: "Live",
+    category: "Web Development · Saas Platform",
+    description: "A showcase of digital products and brand experiences we've built for our clients.",
+    tags: ["Branding", "Identity", "Delivered", "Web Development", "SaaS Platform", "Logo Design", "Typography", "Color System", "Iconography"],
+    image: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784556834/SA_01_fnk153.jpg",
+    caseStudy: {
+      title: "Solve Agripark",
+      intro: "A showcase of digital products and brand experiences we've built for our clients.",
+      details: "", // Added to satisfy mandatory interface requirement
+      stats: [
+        { value: "3wk", label: "Delivery Time" },
+        { value: "5", label: "Concepts Explored" },
+        { value: "100%", label: "Client Satisfaction" }
+      ],
+      colors: [],
+      images: {
+        philosophy: "",
+        colorPalette: "",
+        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557559/Frame_1984079378_4_gjsftd.png"
+      }
+    }
+  },
+  {
+    slug: "spot-media",
+    title: "Spot Media",
+    status: "Live",
+    category: "Web Development · Saas Platform",
+    description: "A showcase of digital products and brand experiences we've built for our clients.",
+    tags: ["Branding", "Identity", "Delivered", "Web Development", "SaaS Platform", "Logo Design", "Typography", "Color System", "Iconography"],
+    image: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784556808/SM_02_mddyt2.jpg",
+    caseStudy: {
+      title: "Stop Media",
+      intro: "A showcase of digital products and brand experiences we've built for our clients.",
+      details: "", // Added to satisfy mandatory interface requirement
+      stats: [
+        { value: "3wk", label: "Delivery Time" },
+        { value: "5", label: "Concepts Explored" },
+        { value: "100%", label: "Client Satisfaction" }
+      ],
+      colors: [],
+      images: {
+        philosophy: "",
+        colorPalette: "",
+        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557534/Frame_1984079378_5_yxsdgn.png"
+      }
+    }
+  }
 ];

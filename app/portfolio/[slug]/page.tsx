@@ -17,9 +17,6 @@ export default async function CaseStudyPage({
   // 1. Find the matching project by slug
   const project = projects.find((p) => p.slug === slug);
 
-  // Debug: uncomment if it's still not matching to see what's actually coming through
-  // console.log("slug param:", slug, "available slugs:", projects.map((p) => p.slug));
-
   // 2. Guard against a missing project or a project with no case study content
   if (!project || !project.caseStudy) {
     notFound();
@@ -27,12 +24,11 @@ export default async function CaseStudyPage({
 
   const { caseStudy } = project;
 
+  // Check if stats exist to determine border radius and margins
+  const hasStats = caseStudy.stats && caseStudy.stats.length > 0;
+
   return (
     <PageShell className="flex flex-col pb-24">
-      {/* 
-        We use max-w-4xl and mx-auto to constrain the width of the case study content 
-        while letting the PageShell handle the global header/footer boundaries.
-      */}
       <main className="max-w-4xl mx-auto w-full pt-12 px-6 md:px-0">
         
         {/* 1. Back Navigation & Header */}
@@ -52,7 +48,7 @@ export default async function CaseStudyPage({
 
         {/* 2. Tags & Deliverables */}
         <div className="flex flex-col gap-4 mb-12">
-          {/* Main Category Tags (from the project's top-level tags) */}
+          {/* Main Category Tags */}
           {project.tags && project.tags.length > 0 && (
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag) => (
@@ -65,7 +61,7 @@ export default async function CaseStudyPage({
               ))}
             </div>
           )}
-          {/* Specific Deliverable Tags (from caseStudy.deliverables) */}
+          {/* Specific Deliverable Tags */}
           {caseStudy.deliverables && caseStudy.deliverables.length > 0 && (
             <div className="flex flex-wrap gap-2">
               {caseStudy.deliverables.map((item) => (
@@ -80,8 +76,12 @@ export default async function CaseStudyPage({
           )}
         </div>
 
-        {/* 3. Hero Image — Image #1: same image used on the /portfolio card */}
-        <div className="w-full aspect-[16/9] bg-[#111] rounded-[10px] border border-border overflow-hidden relative mb-6">
+        {/* 3. Hero Image — Merges dynamically with Stats Grid if stats exist */}
+        <div 
+          className={`w-full aspect-[16/9] bg-[#111] border border-border overflow-hidden relative ${
+            hasStats ? 'rounded-t-[10px] border-b-0' : 'rounded-[10px] mb-6'
+          }`}
+        >
           {project.image ? (
             <Image
               src={project.image}
@@ -100,10 +100,10 @@ export default async function CaseStudyPage({
           )}
         </div>
 
-        {/* 4. 3-Column Stats Grid */}
-        {caseStudy.stats && caseStudy.stats.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-3 border border-border rounded-[10px] overflow-hidden bg-[#111] divide-y md:divide-y-0 md:divide-x divide-border mb-24">
-            {caseStudy.stats.map((stat, i) => (
+        {/* 4. 3-Column Stats Grid — Pointy top corners, rounded bottom corners */}
+        {hasStats && (
+          <div className="grid grid-cols-1 md:grid-cols-3 border border-border rounded-b-[10px] overflow-hidden bg-[#111] divide-y md:divide-y-0 md:divide-x divide-border mb-24">
+            {caseStudy.stats!.map((stat, i) => (
               <div key={i} className="p-8 text-center flex flex-col justify-center">
                 <p className="text-4xl font-display text-gradient-custom mb-2">{stat.value}</p>
                 <p className="text-[10px] text-gray-500 uppercase tracking-widest">
@@ -114,7 +114,7 @@ export default async function CaseStudyPage({
           </div>
         )}
 
-       {/* 5. Brand/Project Philosophy Section — Only render if philosophy image exists */}
+       {/* 5. Brand/Project Philosophy Section */}
         {caseStudy.philosophy && caseStudy.images?.philosophy ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24 items-center">
             <div>
@@ -140,7 +140,7 @@ export default async function CaseStudyPage({
           </div>
         ) : null}
 
-        {/* 6 Brand Color Palette Section — Only render if colorPalette image exists */}
+        {/* 6 Brand Color Palette Section */}
         {caseStudy.colors && caseStudy.colors.length > 0 && caseStudy.images?.colorPalette ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-24">
             <div className="w-full aspect-[4/5] bg-[#111] rounded-[10px] border border-border overflow-hidden relative">
@@ -196,25 +196,8 @@ export default async function CaseStudyPage({
           </div>
         )}
 
-        {/* 8. Tech Stack (optional, only rendered if caseStudy.tech is present) */}
-        {/*caseStudy.tech && caseStudy.tech.length > 0 && (
-          <div className="mb-12">
-            <h2 className="text-2xl font-display text-white mb-6">Tech Stack</h2>
-            <div className="flex flex-wrap gap-2">
-              {caseStudy.tech.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-4 py-1.5 rounded-full text-[11px] uppercase tracking-widest border border-[#333] bg-[#111] text-gray-300"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        )*/}
-
-        {/* 9. Key Features (optional, only rendered if caseStudy.features is present) */}
-        {caseStudy.features && caseStudy.features.length > 0 && (
+        {/* 9. Key Features */}
+        {/*caseStudy.features && caseStudy.features.length > 0 && (
           <div className="mb-12">
             <h2 className="text-2xl font-display text-white mb-6">Key Features</h2>
             <ul className="flex flex-col gap-3">
@@ -226,7 +209,7 @@ export default async function CaseStudyPage({
               ))}
             </ul>
           </div>
-        )}
+        )*/}
 
       </main>
     </PageShell>
