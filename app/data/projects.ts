@@ -537,7 +537,7 @@ export const projects: Project[] = [
       images: {
         philosophy: "",
         colorPalette: "",
-        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557701/Frame_1984079421_kue2p0.png"
+        showcase: "/autotry.png"
       }
     }
   },
@@ -562,7 +562,7 @@ export const projects: Project[] = [
       images: {
         philosophy: "",
         colorPalette: "",
-        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557686/Frame_1984079378_ybymq0.png"
+        showcase: "/blakeui.png"
       }
     }
   },
@@ -587,7 +587,7 @@ export const projects: Project[] = [
       images: {
         philosophy: "",
         colorPalette: "",
-        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557671/Frame_1984079378_1_fjygft.png"
+        showcase: "/costsavy.png"
       }
     }
   },
@@ -612,7 +612,7 @@ export const projects: Project[] = [
       images: {
         philosophy: "",
         colorPalette: "",
-        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557650/Frame_1984079378_2x_lrswwe.png"
+        showcase: "/d360.png"
       }
     }
   },
@@ -637,7 +637,7 @@ export const projects: Project[] = [
       images: {
         philosophy: "",
         colorPalette: "",
-        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557600/Frame_1984079378_2_kke3ve.png"
+        showcase: "/flyfim.png"
       }
     }
   },
@@ -662,7 +662,7 @@ export const projects: Project[] = [
       images: {
         philosophy: "",
         colorPalette: "",
-        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557584/Frame_1984079421_1_fnd6ck.png"
+        showcase: "/meter.png"
       }
     }
   },
@@ -687,7 +687,7 @@ export const projects: Project[] = [
       images: {
         philosophy: "",
         colorPalette: "",
-        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557570/Frame_1984079378_3_d0dxts.png"
+        showcase: "/royaltap.png"
       }
     }
   },
@@ -712,7 +712,7 @@ export const projects: Project[] = [
       images: {
         philosophy: "",
         colorPalette: "",
-        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557559/Frame_1984079378_4_gjsftd.png"
+        showcase: "/solveagripark.png"
       }
     }
   },
@@ -737,7 +737,7 @@ export const projects: Project[] = [
       images: {
         philosophy: "",
         colorPalette: "",
-        showcase: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784557534/Frame_1984079378_5_yxsdgn.png"
+        showcase: "/spotmedia.png"
       }
     }
   }
