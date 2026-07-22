@@ -145,7 +145,7 @@
               </FadeIn>
 
               {/* MOBILE PILLS */}
-              <div className="mt-6 flex flex-wrap gap-2 md:hidden">
+              <div className="mt-6  flex flex-wrap gap-2 md:hidden">
                 {PILL_LABELS.map((label) => (
                   <button
                     key={label}

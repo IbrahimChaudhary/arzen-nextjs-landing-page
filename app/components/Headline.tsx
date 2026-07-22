@@ -14,7 +14,7 @@ const Dot = () => (
 
 export default function Headline() {
   return (
-    <div className="w-full overflow-hidden bg-[#111] border-y border-white/10 py-3 select-none">
+    <div className="w-full overflow-hidden  bg-[#111] border-y border-white/10 py-3 select-none">
       <style>{`
         @keyframes marquee {
           from { transform: translateX(0); }

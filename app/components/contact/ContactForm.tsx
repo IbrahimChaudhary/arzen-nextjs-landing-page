@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { z } from "zod";
 import { serviceOptions, featureOptions } from "@/app/data/contact";
 import {
   TextField,
@@ -29,21 +30,37 @@ const INITIAL: FormState = {
   details: "",
 };
 
-/**
- * Right column: the project enquiry form.
- * Holds all field state locally; onSubmit is stubbed (logs payload) so it's
- * drop-in usable — wire it to your API / email handler where indicated.
- */
 type FieldErrors = Partial<Record<keyof FormState, string>>;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+/**
+ * Name rules (enforced via Zod):
+ * - required, min 2 chars
+ * - only letters, numbers, spaces, apostrophes, and hyphens allowed
+ * - must contain at least one letter (rejects numeric-only input like "12345")
+ */
+const nameSchema = z
+  .string()
+  .trim()
+  .min(1, "Please enter your name.")
+  .min(2, "That name looks too short.")
+  .regex(
+    /^[a-zA-Z0-9\s'-]+$/,
+    "Name can only contain letters, numbers, spaces, apostrophes, and hyphens."
+  )
+  .refine((val) => /[a-zA-Z]/.test(val), {
+    message: "Name cannot be numbers only.",
+  });
 
 /** Pure validation: returns a map of field -> message for invalid fields. */
 function validate(data: FormState): FieldErrors {
   const errors: FieldErrors = {};
 
-  if (!data.name.trim()) errors.name = "Please enter your name.";
-  else if (data.name.trim().length < 2) errors.name = "That name looks too short.";
+  const nameResult = nameSchema.safeParse(data.name);
+  if (!nameResult.success) {
+    errors.name = nameResult.error.issues[0]?.message ?? "Invalid name.";
+  }
 
   if (!data.email.trim()) errors.email = "Please enter your email.";
   else if (!EMAIL_RE.test(data.email.trim()))
@@ -98,7 +115,6 @@ export default function ContactForm() {
     setTouched({ name: true, email: true, details: true });
 
     if (Object.keys(found).length > 0) {
-      // Focus the first invalid field for keyboard/screen-reader users.
       const first = Object.keys(found)[0];
       document.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
       return;

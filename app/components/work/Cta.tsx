@@ -19,11 +19,17 @@ export default function CTA() {
       </p>
 
       <Link
-        href="/contact"
-        className="inline-block mt-8 rounded-full bg-[#f4f4f2] px-7 py-3.5 text-sm font-medium text-[#0a0a0a] transition-opacity hover:opacity-90 active:scale-[0.98] md:mt-10"
-      >
-        Start a Project
-      </Link>
+  href="/contact"
+  className="group/btn relative overflow-hidden inline-flex items-center justify-center mt-8 md:mt-10 rounded-full bg-[#4ADE80] px-7 py-3.5 text-sm font-bold text-[#0a0a0a] transition-transform hover:scale-[1.02] active:scale-[0.98]"
+>
+  {/* Smooth Gradient Fade Layer utilizing your global CSS class */}
+  <span className="absolute inset-0 bg-btn-gradient opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100" />
+  
+  {/* Button Content lifted above the background */}
+  <span className="relative z-10 flex items-center justify-center gap-2">
+    Start a Project
+  </span>
+</Link>
     </section>
   );
 }

@@ -70,7 +70,7 @@ export const projects: Project[] = [
     text: "text-[#2CC562]",
     size: "large",
     tags: ["Branding", "Identity", "Delivered"],
-    image: "https://res.cloudinary.com/dqyff5fwb/image/upload/v1784225972/b46b9cac565fbbc6d9dcf6713c17904f3e865f7a_bbpvfx.png", 
+    image: "https://res.cloudinary.com/dqyff5fwb/image/upload/ar_16:9,c_auto/b46b9cac565fbbc6d9dcf6713c17904f3e865f7a_bbpvfx.png", 
     caseStudy: {
       title: "Amarion Brand Identity",
       intro: "A showcase of digital products and brand experiences we've built for our clients.",

@@ -12,9 +12,10 @@ export default function ProjectCTA() {
 
       <Link
         href="/contact"
-        className="inline-block mt-8 rounded-full bg-white px-7 py-3 text-sm font-medium text-text-black transition-opacity hover:opacity-90 active:scale-[0.98]"
+        className="group/btn relative overflow-hidden inline-flex items-center justify-center mt-8 w-fit h-11 px-7 rounded-full bg-green-400 text-sm font-medium text-text-black transition-transform hover:scale-[1.02] active:scale-[0.98]"
       >
-        Start a Project
+        <span className="absolute inset-0 bg-btn-gradient opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100" />
+        <span className="relative z-10">Start a Project</span>
       </Link>
     </section>
   );
