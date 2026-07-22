@@ -201,7 +201,7 @@ export default async function CaseStudyPage({
           </div>
         )}
 
-        {/* 9. Key Features */}
+        {/*  9. Key Features */}
         {/*caseStudy.features && caseStudy.features.length > 0 && (
           <div className="mb-12">
             <h2 className="text-2xl font-display text-white mb-6">Key Features</h2>
