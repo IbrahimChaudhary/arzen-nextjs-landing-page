@@ -2,12 +2,33 @@ import SDG from "./ui/SDG";
 import FadeIn from "@/app/components/animations/FadeIn";
 import ProjectCard from "./ProjectCard";
 import Link from "next/link";
-import { projects } from "@/app/data/projects"; // Adjust this import path if needed
+import { client } from "@/sanity/lib/client"; // Import Sanity client
 
+// Define the type matching what we fetch for the cards
+export interface FeaturedProject {
+  title: string;
+  slug: string;
+  status: "Live" | "Delivered" | "Ongoing";
+  category?: string[];
+  description?: string;
+  tags?: string[];
+  image?: string;
+}
 
-export default function Projects() {
-  // Extract only the first 3 projects for the homepage preview
-  const featuredProjects = projects.slice(0, 3);
+export default async function Projects() {
+  // 1. Fetch only the first 3 projects from Sanity
+  const query = `*[_type == "caseStudy"][0...3]{
+    title,
+    "slug": slug.current,
+    status,
+    category,
+    description,
+    tags,
+    "image": heroImage.asset->url
+  }`;
+
+  const featuredProjects: FeaturedProject[] = await client.fetch(query,{},
+  { next: { revalidate: 60 } });
 
   return (
     <section id="work" className="bg-[#0D0D0D] text-white py-20 md:py-[104px] px-6 md:px-16 lg:px-[244px]">
@@ -31,14 +52,14 @@ export default function Projects() {
         {/* Cards */}
         {featuredProjects.length > 0 && (
           <FadeIn direction="up" delay={0.1}>
-            <ProjectCard project={featuredProjects[0]} />
+            <ProjectCard project={featuredProjects[0]} caseStudy />
           </FadeIn>
         )}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {featuredProjects.slice(1).map((p, i) => (
             <FadeIn key={p.slug || p.title} direction="up" delay={0.1 + i * 0.08}>
-              <ProjectCard project={p} />
+              <ProjectCard project={p} caseStudy />
             </FadeIn>
           ))}
         </div>
@@ -60,18 +81,14 @@ export default function Projects() {
               </p>
 
               <a
-  href="/contact"
-  // I removed "btn-primary" from the beginning of this line:
-  className="group/btn relative overflow-hidden inline-flex items-center justify-center w-fit h-11 px-6 rounded-full bg-[#4ADE80] text-sm font-semibold text-black transition-transform hover:scale-[1.02]"
->
-  {/* Smooth Gradient Fade Layer utilizing your global CSS class */}
-  <span className="absolute inset-0 bg-btn-gradient opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100" />
-  
-  {/* Button Content lifted above the background */}
-  <span className="relative z-10 flex items-center justify-center gap-2">
-    Start Your Project
-  </span>
-</a>
+                href="/contact"
+                className="group/btn relative overflow-hidden inline-flex items-center justify-center w-fit h-11 px-6 rounded-full bg-[#4ADE80] text-sm font-semibold text-black transition-transform hover:scale-[1.02]"
+              >
+                <span className="absolute inset-0 bg-btn-gradient opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100" />
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  Start Your Project
+                </span>
+              </a>
             </div>
           </div>
         </FadeIn>

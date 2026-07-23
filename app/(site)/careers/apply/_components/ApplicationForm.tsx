@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import type { Job } from "../../../../lib/careers-data";
+import type { Job } from "../../../../../lib/careers-data";
 
 interface FormState {
   name: string;

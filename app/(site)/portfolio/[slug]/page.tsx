@@ -2,11 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import PageShell from "@/app/components/ui/PageShell"; // Adjust the import path as needed
-import { projects } from "@/app/data/projects"; // Adjust the import path to wherever projects.ts lives
+import { client } from "@/sanity/lib/client"; // Adjust the import path to your Sanity client
 
-// Next.js 15+ passes `params` as a Promise in the App Router.
-// If you're on Next.js 14 or earlier, change the type back to `{ slug: string }`
-// and remove the `await` below (params.slug will already be a plain string).
 export default async function CaseStudyPage({
   params,
 }: {
@@ -14,18 +11,31 @@ export default async function CaseStudyPage({
 }) {
   const { slug } = await params;
 
-  // 1. Find the matching project by slug
-  const project = projects.find((p) => p.slug === slug);
+  // 1. Fetch the matching project from Sanity by slug
+  const query = `*[_type == "caseStudy" && slug.current == $slug][0]{
+    title,
+    intro,
+    tags,
+    category,
+    deliverables,
+    "heroImageUrl": heroImage.asset->url + "?w=1600&q=75&auto=format",
+    stats,
+    philosophyText,
+    "philosophyImageUrl": philosophyImage.asset->url + "?w=900&q=75&auto=format",
+    colors,
+    "colorPaletteImageUrl": colorPaletteImage.asset->url + "?w=900&q=75&auto=format",
+    "showcaseImageUrl": showcaseImage.asset->url+ "?w=1200&q=75&auto=format"
+  }`;
 
-  // 2. Guard against a missing project or a project with no case study content
-  if (!project || !project.caseStudy) {
+  const project = await client.fetch(query, { slug });
+
+  // 2. Guard against a missing project
+  if (!project) {
     notFound();
   }
 
-  const { caseStudy } = project;
-
   // Check if stats exist to determine border radius and margins
-  const hasStats = caseStudy.stats && caseStudy.stats.length > 0;
+  const hasStats = project.stats && project.stats.length > 0;
 
   return (
     <PageShell className="flex flex-col pb-24">
@@ -40,10 +50,10 @@ export default async function CaseStudyPage({
         </Link>
 
         <h1 className="text-4xl md:text-5xl font-display text-white mb-4 tracking-tight">
-          {caseStudy.title}
+          {project.caseStudyTitle || project.title}
         </h1>
         <p className="text-gray-400 text-sm md:text-base max-w-2xl mb-10 leading-relaxed">
-          {caseStudy.intro}
+          {project.intro}
         </p>
 
         {/* 2. Tags & Deliverables */}
@@ -51,10 +61,10 @@ export default async function CaseStudyPage({
           {/* Main Category Tags */}
           {project.tags && project.tags.length > 0 && (
             <div className="flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
+              {project.tags.map((tag: string) => (
                 <span
                   key={tag}
-                  className="px-4 py-1.5 rounded-full text-[11px] uppercase tracking-widest border border-[#333] bg-[##1A1A1A] text-gray-500"
+                  className="px-4 py-1.5 rounded-full text-[11px] uppercase tracking-widest border border-[#333] bg-[#1A1A1A] text-gray-500"
                 >
                   {tag}
                 </span>
@@ -62,9 +72,9 @@ export default async function CaseStudyPage({
             </div>
           )}
           {/* Specific Deliverable Tags */}
-          {caseStudy.deliverables && caseStudy.deliverables.length > 0 && (
+          {project.deliverables && project.deliverables.length > 0 && (
             <div className="flex flex-wrap gap-2">
-              {caseStudy.deliverables.map((item) => (
+              {project.deliverables.map((item: string) => (
                 <span
                   key={item}
                   className="px-4 py-1.5 rounded-full text-[11px] uppercase tracking-widest border border-[#333] bg-transparent text-gray-500"
@@ -82,15 +92,15 @@ export default async function CaseStudyPage({
             hasStats ? 'rounded-t-[10px] border-b-0' : 'rounded-[10px] mb-6'
           }`}
         >
-          {project.image ? (
+          {project.heroImageUrl ? (
             <Image
-              src={project.image}
-              alt={caseStudy.title}
+              src={project.heroImageUrl}
+              alt={project.title}
               fill
               priority
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 896px"
-              quality={100}
+            
               unoptimized
             />
           ) : (
@@ -103,7 +113,7 @@ export default async function CaseStudyPage({
         {/* 4. 3-Column Stats Grid — Pointy top corners, rounded bottom corners */}
         {hasStats && (
           <div className="grid grid-cols-1 md:grid-cols-3 border border-border rounded-b-[10px] overflow-hidden bg-[#111] divide-y md:divide-y-0 md:divide-x divide-border mb-24">
-            {caseStudy.stats!.map((stat, i) => (
+            {project.stats.map((stat: { value: string; label: string }, i: number) => (
               <div key={i} className="p-8 text-center flex flex-col justify-center">
                 <p className="text-4xl font-display text-gradient-custom mb-2">{stat.value}</p>
                 <p className="text-[10px] text-gray-500 uppercase tracking-widest">
@@ -115,21 +125,21 @@ export default async function CaseStudyPage({
         )}
 
        {/* 5. Brand/Project Philosophy Section */}
-        {caseStudy.philosophy && caseStudy.images?.philosophy ? (
+        {project.philosophyText && project.philosophyImageUrl ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24 items-center">
             <div>
               <h2 className="text-2xl font-display text-white mb-6">
                 {project.category?.includes("Branding") ? "Brand Philosophy" : "Project Philosophy"}
               </h2>
               <p className="text-gray-400 text-sm leading-relaxed">
-                {caseStudy.philosophy}
+                {project.philosophyText}
               </p>
             </div>
 
             <div className="w-full aspect-[4/5] bg-[#111] rounded-[10px] border border-border overflow-hidden relative">
               <Image
-                src={caseStudy.images.philosophy}
-                alt={`${caseStudy.title} — philosophy`}
+                src={project.philosophyImageUrl}
+                alt={`${project.title} — philosophy`}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 448px"
@@ -141,12 +151,12 @@ export default async function CaseStudyPage({
         ) : null}
 
         {/* 6 Brand Color Palette Section */}
-        {caseStudy.colors && caseStudy.colors.length > 0 && caseStudy.images?.colorPalette ? (
+        {project.colors && project.colors.length > 0 && project.colorPaletteImageUrl ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-24">
             <div className="w-full aspect-[4/5] bg-[#111] rounded-[10px] border border-border overflow-hidden relative">
               <Image
-                src={caseStudy.images.colorPalette}
-                alt={`${caseStudy.title} — color palette`}
+                src={project.colorPaletteImageUrl}
+                alt={`${project.title} — color palette`}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 448px"
@@ -158,7 +168,7 @@ export default async function CaseStudyPage({
             <div className="flex flex-col gap-8 pt-2">
               <h2 className="text-2xl font-display text-white">Brand color palette</h2>
               <div className="flex flex-col gap-6">
-                {caseStudy.colors.map((color) => (
+                {project.colors.map((color: { hex: string; name: string; description?: string }) => (
                   <div key={color.hex} className="flex items-start gap-4">
                     <span
                       className="w-8 h-8 rounded-full border border-border shrink-0 mt-0.5"
@@ -181,40 +191,18 @@ export default async function CaseStudyPage({
           </div>
         ) : null}
 
-      
-       {/* 7. Showcase — Image #4: a single tall/long image.
-           Uses a plain <img> instead of next/image because this image's
-           height varies per project (some short, some very tall stacked
-           mockups), so there's no single width/height ratio that fits all
-           of them. A plain <img> with w-full h-auto scales correctly for
-           any aspect ratio without needing Next's image optimizer, which
-           was failing on the very tall variants. */}
-        {caseStudy.images?.showcase && (
+       {/* 7. Showcase — Image #4: a single tall/long image. */}
+        {project.showcaseImageUrl && (
           <div className="w-full bg-[#111] rounded-[10px] border border-border overflow-hidden mb-24 flex flex-col">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={caseStudy.images.showcase}
-              alt={`${caseStudy.title} — showcase`}
+              src={project.showcaseImageUrl}
+              alt={`${project.title} — showcase`}
               className="w-full h-auto block"
               loading="lazy"
             />
           </div>
         )}
-
-        {/*  9. Key Features */}
-        {/*caseStudy.features && caseStudy.features.length > 0 && (
-          <div className="mb-12">
-            <h2 className="text-2xl font-display text-white mb-6">Key Features</h2>
-            <ul className="flex flex-col gap-3">
-              {caseStudy.features.map((feature) => (
-                <li key={feature} className="text-gray-400 text-sm leading-relaxed flex gap-3">
-                  <span className="text-[#3DDB6A]">—</span>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )*/}
 
       </main>
     </PageShell>

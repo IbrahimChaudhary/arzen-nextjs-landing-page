@@ -1,23 +1,34 @@
 "use client";
 import { useState } from "react";
-import ProjectCard from "../components/ProjectCard";
-import SDG from "../components/ui/SDG";
-import PageShell from "../components/ui/PageShell";
-import { Project } from "@/app/data/projects";
-import { projects } from "../data/projects"; // Adjust relative path if needed
+import ProjectCard from "../../components/ProjectCard"; // Adjust path if needed
+import SDG from "../../components/ui/SDG"; // Adjust path if needed
+import PageShell from "../../components/ui/PageShell"; // Adjust path if needed
+
+
+// 1. Import or define your exact ProjectStatus type
+export type ProjectStatus = "Live" | "Delivered" | "Ongoing";
+
+// 2. Update SanityProject to use ProjectStatus instead of generic string
+export interface SanityProject {
+  title: string;
+  slug: string;
+  status: ProjectStatus; // <-- Updated from string to ProjectStatus
+  category?: string[];
+  intro?: string;
+  tags?: string[];
+  image?: string;
+}
 
 const tabs = ["All", "Web Dev", "Design", "SaaS", "Branding"];
 
-
-
-const Portfolio = () => {
+export default function PortfolioClient({ initialProjects }: { initialProjects: SanityProject[] }) {
   const [activeTab, setActiveTab] = useState("All");
-
-  const filteredProjects =
+const filteredProjects =
     activeTab === "All"
-      ? projects
-      : projects.filter((p) =>
-          p.category?.toLowerCase().includes(activeTab.toLowerCase())
+      ? initialProjects
+      : initialProjects.filter((p) =>
+          // Check if ANY of the categories in the array match the active tab
+          p.category?.some((cat) => cat.toLowerCase().includes(activeTab.toLowerCase()))
         );
 
   return (
@@ -32,7 +43,7 @@ const Portfolio = () => {
         </p>
 
         {/* Tabs */}
-        <div className="flex flex-wrap items-left  gap-2 mt-4">
+        <div className="flex flex-wrap items-left gap-2 mt-4">
           {tabs.map((tab) => {
             const isActive = activeTab === tab;
 
@@ -60,14 +71,12 @@ const Portfolio = () => {
           .map((project) => (
             <ProjectCard
               key={project.slug}
-             project={project}
+              project={project}
               caseStudy
-              description={project.description}
+              intro={project.intro}
             />
           ))}
       </div>
     </PageShell>
   );
-};
-
-export default Portfolio;
+}

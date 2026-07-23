@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Archivo_Black, DM_Sans } from "next/font/google";
 import "./globals.css";
 import CursorFollower from "@/app/components/CursorFollower";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import ResetScrollOnReload from "./components/ResetScrollOnReload";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import ResetScrollOnReload from "../components/ResetScrollOnReload";
 
 const archivoBlack = Archivo_Black({
   subsets: ["latin"],

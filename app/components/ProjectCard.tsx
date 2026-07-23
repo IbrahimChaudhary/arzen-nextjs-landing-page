@@ -7,11 +7,11 @@ import Image from "next/image"; // 1. Import Next Image
 export default function ProjectCard({
   project,
   caseStudy,
-  description,
+  intro,
 }: {
   project: Project;
   caseStudy?: boolean;
-  description?: string;
+  intro?: string;
 }) {
   return (
     <motion.div
@@ -30,6 +30,7 @@ export default function ProjectCard({
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
+            unoptimized
           />
         )}
         
@@ -38,16 +39,16 @@ export default function ProjectCard({
 
       <div className="border-t border-border bg-[#111] p-5">
         <p className="font-body text-[12px] text-gray tracking-wide text-white/35 mb-1">
-          {project.category}
-        </p>
+  {project.category?.join(" • ")}
+</p>
         
         <h3 className="text-[14px] font-display font-normal mb-2 tracking-[-0.02em] text-white">
           {project.title}
         </h3>
         
-        {description && (
+        {intro && (
           <p className="text-[12px] text-[#F4F4F4] tracking-[2px] mb-4 line-clamp-2">
-            {description}
+            {intro}
           </p>
         )}
         
