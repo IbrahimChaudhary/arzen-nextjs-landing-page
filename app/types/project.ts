@@ -5,7 +5,7 @@ export default interface Project {
   description?: string;
   size?: "large" | "small";
   image?: string;
-  category?: string;
+  category: string;
   title: string;
   tags?: string[];
   status?: string;

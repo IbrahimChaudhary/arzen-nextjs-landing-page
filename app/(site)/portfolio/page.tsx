@@ -15,7 +15,7 @@ export default async function PortfolioPage() {
     "image": heroImage.asset->url
   }`;
 
-  const projects: SanityProject[] = await client.fetch(query);
+  const projects: SanityProject[] = await client.fetch(query,{},{ next: { tags: ['caseStudy'] } });
 
   // 2. Pass the fetched data to your interactive Client Component
   return <PortfolioClient initialProjects={projects} />;

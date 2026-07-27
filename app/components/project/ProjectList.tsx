@@ -1,6 +1,7 @@
 import { client } from "@/sanity/lib/client";
 import ProjectRow from "./ProjectRow";
 import { Project } from "@/app/data/projects";
+import caseStudy from "@/sanity/schemaTypes/caseStudy";
 
 const query = `*[_type == "caseStudy"] | order(_createdAt desc){
   title,
@@ -13,7 +14,7 @@ const query = `*[_type == "caseStudy"] | order(_createdAt desc){
 }`;
 
 export default async function ProjectList() {
-  const projects: Project[] = await client.fetch(query);
+  const projects: Project[] = await client.fetch(query,{},{next : {tags: ['caseStudy']}});
 
   return (
     <section className="overflow-hidden rounded-2xl border border-1 border-[#535353] bg-[#1A1A1A]">

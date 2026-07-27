@@ -1,0 +1,1180 @@
+[
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 3
+              },
+              {
+                "flag": "max",
+                "constraint": 80
+              }
+            ]
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Job Title"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "options": {
+          "list": [
+            "Full time",
+            "Part time",
+            "Contract",
+            "Internship"
+          ],
+          "layout": "radio"
+        },
+        "initialValue": "Full time",
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "Full time",
+                  "Part time",
+                  "Contract",
+                  "Internship"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "type",
+        "type": "string",
+        "title": "Employment Type"
+      },
+      {
+        "initialValue": "Remote",
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "location",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "stringCasing",
+                "constraint": "uppercase"
+              }
+            ]
+          }
+        ],
+        "description": "Short badge shown on the card, e.g. \"DEVELOPMENT\"",
+        "name": "tag",
+        "type": "string",
+        "title": "Tag Label"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Green",
+              "value": "green"
+            },
+            {
+              "title": "Pink",
+              "value": "pink"
+            },
+            {
+              "title": "Yellow",
+              "value": "yellow"
+            },
+            {
+              "title": "Blue",
+              "value": "blue"
+            }
+          ],
+          "layout": "radio"
+        },
+        "initialValue": "green",
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "green",
+                  "pink",
+                  "yellow",
+                  "blue"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "tagColor",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "department",
+        "type": "string"
+      },
+      {
+        "name": "reportsTo",
+        "type": "string"
+      },
+      {
+        "initialValue": "Depends on experience",
+        "name": "salary",
+        "type": "string"
+      },
+      {
+        "initialValue": "Flexible",
+        "name": "startDate",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "rows": 3,
+            "type": "text"
+          }
+        ],
+        "name": "about",
+        "type": "array",
+        "title": "About the Role"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "responsibilities",
+        "type": "array"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "mustHave",
+        "type": "array"
+      },
+      {
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "niceToHave",
+        "type": "array",
+        "title": "Nice to Have"
+      },
+      {
+        "initialValue": true,
+        "description": "Toggle off to hide this role from Open Positions without deleting it",
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Active"
+      },
+      {
+        "initialValue": 0,
+        "description": "Lower numbers appear first",
+        "name": "order",
+        "type": "number",
+        "title": "Display Order"
+      }
+    ],
+    "name": "job",
+    "type": "document",
+    "title": "Job Posting"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 60
+              }
+            ]
+          }
+        ],
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Used if you later build a dedicated /services/[slug] page.",
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 220
+              }
+            ]
+          }
+        ],
+        "description": "Keep it short — this renders in a fixed-width card (~max-w-md).",
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "options": {
+          "layout": "tags"
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              },
+              {
+                "flag": "max",
+                "constraint": 6
+              }
+            ],
+            "message": "Add at least 1 tag, no duplicates, 6 max for card layout."
+          }
+        ],
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "tags",
+        "type": "array",
+        "title": "Tags / Tech Stack"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 0
+              }
+            ]
+          }
+        ],
+        "description": "Controls the 01, 02, 03… numbering on the card. Lower shows first.",
+        "name": "order",
+        "type": "number",
+        "title": "Display Order"
+      },
+      {
+        "initialValue": true,
+        "description": "Toggle off to hide from the site without deleting.",
+        "name": "active",
+        "type": "boolean"
+      }
+    ],
+    "name": "service",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Used for both the portfolio card title and the inner case study h1 heading.",
+        "name": "title",
+        "type": "string",
+        "title": "Project & Case Study Title",
+        "fieldset": "card"
+      },
+      {
+        "options": {
+          "source": "title"
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug",
+        "title": "Slug (URL)",
+        "fieldset": "card"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Live",
+              "value": "Live"
+            },
+            {
+              "title": "Delivered",
+              "value": "Delivered"
+            },
+            {
+              "title": "Ongoing",
+              "value": "Ongoing"
+            }
+          ],
+          "layout": "radio"
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "Live",
+                  "Delivered",
+                  "Ongoing"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "status",
+        "type": "string",
+        "title": "Project Status",
+        "fieldset": "card"
+      },
+      {
+        "description": "Used for the portfolio row tech list AND the case study \"Tech\" section.",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "tech",
+        "type": "array",
+        "title": "Tech Stack / Tools",
+        "fieldset": "card"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Web Development",
+              "value": "Web Development"
+            },
+            {
+              "title": "Design",
+              "value": "Design"
+            },
+            {
+              "title": "SaaS",
+              "value": "SaaS"
+            },
+            {
+              "title": "Branding",
+              "value": "Branding"
+            },
+            {
+              "title": "Identity",
+              "value": "Identity"
+            }
+          ]
+        },
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "category",
+        "type": "array",
+        "title": "Categories",
+        "fieldset": "card"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "Used for both the portfolio card description and the case study intro paragraph.",
+        "name": "intro",
+        "type": "text",
+        "title": "Description & Intro Text",
+        "fieldset": "card"
+      },
+      {
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "tags",
+        "type": "array",
+        "fieldset": "card"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "REQUIRED: Acts as the portfolio card image AND case study hero image.",
+        "name": "heroImage",
+        "type": "image",
+        "title": "Hero / Card Image",
+        "fieldset": "card"
+      },
+      {
+        "name": "philosophyText",
+        "type": "text",
+        "fieldset": "page"
+      },
+      {
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "deliverables",
+        "type": "array",
+        "fieldset": "page"
+      },
+      {
+        "initialValue": [
+          {
+            "value": "3wk",
+            "label": "Delivery Time"
+          },
+          {
+            "value": "5",
+            "label": "Concepts Explored"
+          },
+          {
+            "value": "100%",
+            "label": "Client Satisfaction"
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "description": "e.g. 3wk, 5, 100%",
+                "name": "value",
+                "type": "string",
+                "title": "Stat Value"
+              },
+              {
+                "options": {
+                  "list": [
+                    {
+                      "title": "Delivery Time",
+                      "value": "Delivery Time"
+                    },
+                    {
+                      "title": "Concepts Explored",
+                      "value": "Concepts Explored"
+                    },
+                    {
+                      "title": "Client Satisfaction",
+                      "value": "Client Satisfaction"
+                    }
+                  ]
+                },
+                "validation": [
+                  {
+                    "level": "error",
+                    "rules": [
+                      {
+                        "flag": "valid",
+                        "constraint": [
+                          "Delivery Time",
+                          "Concepts Explored",
+                          "Client Satisfaction"
+                        ]
+                      },
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ]
+                  }
+                ],
+                "name": "label",
+                "type": "string",
+                "title": "Stat Label"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "stats",
+        "type": "array",
+        "title": "Project Stats",
+        "fieldset": "page"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "description": "e.g. #F25C38",
+                "name": "hex",
+                "type": "string",
+                "title": "Hex Code"
+              },
+              {
+                "name": "name",
+                "type": "string",
+                "title": "Color Name"
+              },
+              {
+                "name": "description",
+                "type": "text"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "colors",
+        "type": "array",
+        "title": "Brand Colors",
+        "fieldset": "page"
+      },
+      {
+        "name": "philosophyImage",
+        "type": "image",
+        "fieldset": "page"
+      },
+      {
+        "name": "colorPaletteImage",
+        "type": "image",
+        "fieldset": "page"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "description": "REQUIRED: The final tall showcase image at the bottom.",
+        "name": "showcaseImage",
+        "type": "image",
+        "title": "Tall Showcase Image",
+        "fieldset": "page"
+      }
+    ],
+    "fieldsets": [
+      {
+        "name": "card",
+        "title": "Portfolio Card Details (Project Interface)"
+      },
+      {
+        "name": "page",
+        "title": "Case Study Page Details (CaseStudyDetails Interface)"
+      }
+    ],
+    "name": "caseStudy",
+    "type": "document",
+    "title": "Portfolio Case Study"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 20
+              }
+            ]
+          }
+        ],
+        "description": "Short stat value, such as 120+ or 5+",
+        "name": "value",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 40
+              }
+            ]
+          }
+        ],
+        "description": "Explain what the stat represents",
+        "name": "label",
+        "type": "string"
+      }
+    ],
+    "name": "aboutStat",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 60
+              }
+            ]
+          }
+        ],
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 60
+              }
+            ]
+          }
+        ],
+        "name": "role",
+        "type": "string"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 220
+              }
+            ]
+          }
+        ],
+        "name": "bio",
+        "type": "text",
+        "title": "Biography"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 6
+              }
+            ]
+          }
+        ],
+        "description": "Short initials shown in the avatar circle",
+        "name": "initials",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Green",
+              "value": "green"
+            },
+            {
+              "title": "Pink",
+              "value": "pink"
+            },
+            {
+              "title": "Orange",
+              "value": "orange"
+            }
+          ],
+          "layout": "radio"
+        },
+        "initialValue": "green",
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "green",
+                  "pink",
+                  "orange"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "accent",
+        "type": "string",
+        "title": "Accent Color"
+      }
+    ],
+    "name": "aboutTeamMember",
+    "type": "object",
+    "title": "Team Member"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 40
+              }
+            ]
+          }
+        ],
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 220
+              }
+            ]
+          }
+        ],
+        "name": "description",
+        "type": "text"
+      }
+    ],
+    "name": "aboutValue",
+    "type": "object",
+    "title": "Value"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "About",
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 40
+              }
+            ]
+          }
+        ],
+        "name": "pageTitle",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 90
+              }
+            ]
+          }
+        ],
+        "description": "Main title shown in the hero section",
+        "name": "heroTitle",
+        "type": "string",
+        "title": "Hero Heading"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "max",
+                "constraint": 280
+              }
+            ]
+          }
+        ],
+        "description": "Short overview for the about hero",
+        "name": "heroDescription",
+        "type": "text"
+      },
+      {
+        "initialValue": "Our Services",
+        "name": "heroPrimaryCtaLabel",
+        "type": "string",
+        "title": "Primary CTA Label"
+      },
+      {
+        "initialValue": "/work",
+        "name": "heroPrimaryCtaHref",
+        "type": "string",
+        "title": "Primary CTA Link"
+      },
+      {
+        "initialValue": "View Portfolio",
+        "name": "heroSecondaryCtaLabel",
+        "type": "string",
+        "title": "Secondary CTA Label"
+      },
+      {
+        "initialValue": "/portfolio",
+        "name": "heroSecondaryCtaHref",
+        "type": "string",
+        "title": "Secondary CTA Link"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              },
+              {
+                "flag": "max",
+                "constraint": 4
+              }
+            ]
+          }
+        ],
+        "description": "Add one paragraph per text block",
+        "of": [
+          {
+            "rows": 2,
+            "type": "text"
+          }
+        ],
+        "name": "storyParagraphs",
+        "type": "array"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 4
+              },
+              {
+                "flag": "max",
+                "constraint": 4
+              }
+            ]
+          }
+        ],
+        "description": "Display 4 highlight cards in the story section",
+        "of": [
+          {
+            "type": "aboutStat"
+          }
+        ],
+        "name": "stats",
+        "type": "array",
+        "title": "Highlights / Stats"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "type": "aboutTeamMember",
+            "title": "Team Member"
+          }
+        ],
+        "name": "team",
+        "type": "array",
+        "title": "Team Members"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "type": "aboutValue",
+            "title": "Value"
+          }
+        ],
+        "name": "values",
+        "type": "array",
+        "title": "Company Values"
+      },
+      {
+        "initialValue": true,
+        "description": "Toggle off to hide the about page content",
+        "name": "isActive",
+        "type": "boolean",
+        "title": "Publish on site"
+      }
+    ],
+    "name": "aboutPage",
+    "type": "document"
+  }
+]

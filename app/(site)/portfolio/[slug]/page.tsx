@@ -27,7 +27,7 @@ export default async function CaseStudyPage({
     "showcaseImageUrl": showcaseImage.asset->url+ "?w=1200&q=75&auto=format"
   }`;
 
-  const project = await client.fetch(query, { slug });
+  const project = await client.fetch(query, { slug }, { next: { tags: ['caseStudy'] } });
 
   // 2. Guard against a missing project
   if (!project) {
