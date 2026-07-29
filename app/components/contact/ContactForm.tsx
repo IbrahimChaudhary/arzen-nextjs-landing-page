@@ -109,7 +109,8 @@ export default function ContactForm() {
         : [...prev.features, feature],
     }));
 
-  const handleSubmit = () => {
+ const handleSubmit = async () => {
+    // 1. Your existing validation logic (Keep this exactly as is)
     const found = validate(form);
     setErrors(found);
     setTouched({ name: true, email: true, details: true });
@@ -120,12 +121,30 @@ export default function ContactForm() {
       return;
     }
 
-    // TODO: replace with your submission logic (fetch to an API route, etc.)
-    console.log("Contact form submitted:", form);
-    setSubmitted(true);
-    setForm(INITIAL);
-    setErrors({});
-    setTouched({});
+    // 2. The NEW submission logic replacing the // TODO
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      // 3. Your existing success state logic
+      setSubmitted(true);
+      setForm(INITIAL);
+      setErrors({});
+      setTouched({});
+      
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("Something went wrong. Please try again later.");
+    }
   };
 
   if (submitted) {

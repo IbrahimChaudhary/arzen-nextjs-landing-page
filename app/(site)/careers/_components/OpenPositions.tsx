@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { jobsQuery } from "@/sanity/lib/queries";
-import { TAG_COLOR_CLASSES, type Job } from "@/lib/careers-data";
+import { TAG_COLOR_CLASSES, type Job } from "@/app/lib/careers-data";
 
 export default async function OpenPositions() {
   const jobs = await client.fetch<Job[]>(jobsQuery);

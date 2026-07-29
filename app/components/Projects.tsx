@@ -27,8 +27,8 @@ export default async function Projects() {
     "image": heroImage.asset->url
   }`;
 
-  const featuredProjects: FeaturedProject[] = await client.fetch(query,{},
-  { next: { revalidate: 60 } });
+  const featuredProjects: FeaturedProject[] = await client.fetch(query, {},
+    { next: { tags: ['caseStudy'] } });
 
   return (
     <section id="work" className="bg-[#0D0D0D] text-white py-20 md:py-[104px] px-6 md:px-16 lg:px-[244px]">

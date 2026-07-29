@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { generalRole } from '@/lib/careers-data';
+import { generalRole } from '@/app/lib/careers-data';
 import ApplicationForm from '../_components/ApplicationForm';
 
 export const metadata = {
