@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import { jobsQuery, jobBySlugQuery } from "@/sanity/lib/queries";
-import { generalRole, type Job } from "@/lib/careers-data";
+import { generalRole, type Job } from "@/app/lib/careers-data";
 import JobDetailContent from "../_components/JobDetailContent";
 
 interface PageProps {

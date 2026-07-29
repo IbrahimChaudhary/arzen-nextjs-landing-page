@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { TAG_COLOR_CLASSES, type Job } from "../../../../../lib/careers-data";
+import { TAG_COLOR_CLASSES, type Job } from "../../../../lib/careers-data";
 import ApplicationForm from "./ApplicationForm";
 
 const BENEFITS = [
