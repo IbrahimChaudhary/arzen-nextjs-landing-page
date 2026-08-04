@@ -4,9 +4,9 @@ export interface ContactInfo {
 }
 
 export const contactInfo: ContactInfo[] = [
-  { label: "Email", value: "hello@arzen.com" },
-  { label: "Call Us", value: "+1 (234) 567-8900" },
-  { label: "Location", value: "Remote · Worldwide" },
+  { label: "Email", value: "contactus@arzeninc.com" },
+  { label: "Call Us", value: "+92 319 8401751" },
+  { label: "Location", value: "239 st 20 , Township Sector A1 Lahore" },
   { label: "Response Time", value: "Within 24 hours" },
 ];
 
