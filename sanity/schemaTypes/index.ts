@@ -3,7 +3,8 @@ import aboutPage, { aboutStat, aboutTeamMember, aboutValue } from './aboutPage'
 import caseStudy from './caseStudy'
 import service from './service'
 import job from './job'
+import post from './post'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [job, service, caseStudy, aboutStat, aboutTeamMember, aboutValue, aboutPage],
+  types: [job, service, caseStudy, aboutStat, aboutTeamMember, aboutValue, aboutPage,post],
 }
