@@ -5,9 +5,9 @@ import SDG from "./ui/SDG";
 import FadeIn from "@/app/components/animations/FadeIn";
 
 const CONTACT_INFO = [
-  { label: "Email",    value: "hello@arzen.com",    icon: <MdEmail size={15} />     },
-  { label: "Phone",    value: "+1 (234) 567-8900",  icon: <FaPhoneAlt size={14} />  },
-  { label: "Location", value: "Remote · Worldwide", icon: <CiLocationOn size={16} /> },
+  { label: "Email",    value: "contactus@arzeninc.com",    icon: <MdEmail size={15} />     },
+  { label: "Phone",    value: "+92 319 8401751",  icon: <FaPhoneAlt size={14} />  },
+  { label: "Location", value: "239 st 20 , Township Sector A1 Lahore , Pakistan", icon: <CiLocationOn size={16} /> },
 ];
 
 const inputClass =
@@ -50,7 +50,7 @@ export default function Contact() {
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="flex-1 flex flex-col gap-1">
               <label className="text-xs text-white/50">Your Name</label>
-              <input type="text" placeholder="Umair" className={inputClass} />
+              <input type="text" placeholder="Ali" className={inputClass} />
             </div>
             <div className="flex-1 flex flex-col gap-1">
               <label className="text-xs text-white/50">Your Email</label>
