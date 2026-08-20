@@ -1,8 +1,10 @@
+"use client";
+
 import { FaPencilAlt, FaCode } from "react-icons/fa";
 import { AiOutlineAntDesign } from "react-icons/ai";
 import { BsGraphUpArrow } from "react-icons/bs";
+import { ThreeDMarquee } from "./ui/3d-marquee";
 import SDG from "./ui/SDG";
-import FadeIn from "@/app/components/animations/FadeIn";
 
 const SERVICES = [
   {
@@ -31,53 +33,64 @@ const SERVICES = [
   },
 ];
 
+type Service = (typeof SERVICES)[number];
+
+function ServiceCard({ service }: { service: Service }) {
+  return (
+    <div className="flex h-full w-full flex-col gap-4 rounded-xl border border-white/10 bg-[#141414] p-6">
+      <div className="flex items-start justify-between">
+        <div className="flex h-6 w-6 items-center justify-center rounded border border-border text-white/60">
+          {service.icon}
+        </div>
+        <span className="text-xs text-white/30">{service.num}</span>
+      </div>
+      <div className="flex flex-col gap-2">
+        <p className="font-display text-[16px]">{service.title}</p>
+        <p className="text-xs leading-relaxed text-white/50">{service.desc}</p>
+      </div>
+    </div>
+  );
+}
+
+function HighlightCard() {
+  return (
+    <div className="flex h-full w-full flex-col items-center justify-center gap-4 rounded-xl border border-green-border/50 bg-gradient-to-br from-[#0E1911] to-[#141414] p-6 text-center">
+      <SDG title="Our Services" className="border-none" />
+      <h3 className="font-display text-xl leading-tight tracking-[-0.04em] text-white">
+        End-to-end
+        <br />
+        <span className="text-btn-gradient">Digital Solutions</span>
+      </h3>
+      <p className="text-xs leading-relaxed text-white/50">
+        We help startups and businesses build, scale and grow with modern
+        technology and creative solutions.
+      </p>
+    </div>
+  );
+}
+
+const CARDS = [
+  <ServiceCard key="s1a" service={SERVICES[0]} />,
+  <ServiceCard key="s2a" service={SERVICES[1]} />,
+  <ServiceCard key="s3a" service={SERVICES[2]} />,
+  <ServiceCard key="s4a" service={SERVICES[3]} />,
+  <HighlightCard key="highlight" />,
+  <ServiceCard key="s1b" service={SERVICES[0]} />,
+  <ServiceCard key="s2b" service={SERVICES[1]} />,
+  <ServiceCard key="s3b" service={SERVICES[2]} />,
+  <ServiceCard key="s4b" service={SERVICES[3]} />,
+  <ServiceCard key="s1c" service={SERVICES[0]} />,
+  <ServiceCard key="s2c" service={SERVICES[1]} />,
+  <ServiceCard key="s3c" service={SERVICES[2]} />,
+];
+
 export default function Features() {
   return (
     <section id="services" className="bg-[#0d0d0d] text-white py-20 md:py-[104px] px-6 md:px-16 lg:px-[200px]">
-      <FadeIn direction="up">
-        <SDG className="border-none" />
-      </FadeIn>
-
-      <FadeIn direction="up" delay={0.1}>
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mt-6 mb-10 md:mb-[38px]">
-          <h2 className="section-title">
-            End-to-end<br />Digital Solutions
-          </h2>
-          <p className="text-sm text-white/70 max-w-full md:max-w-[370px] leading-relaxed">
-            We help startups and businesses build, scale and grow with modern
-            technology and creative solutions.
-          </p>
-        </div>
-      </FadeIn>
-
-      {/* Cards */}
-      <FadeIn direction="up" delay={0.2}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 rounded-xl overflow-hidden border border-border">
-          {SERVICES.map((s, idx) => (
-            <div
-              key={s.num}
-              className={`
-                p-5 flex flex-col gap-4
-                bg-[#141414] hover:bg-[#0d0d0d]
-                transition-colors cursor-pointer
-                ${idx < SERVICES.length - 1 ? "border-b lg:border-b-0 lg:border-r border-white/10" : ""}
-                ${idx === 1 ? "sm:border-b sm:border-r-0 lg:border-r border-white/10" : ""}
-              `}
-            >
-              <div className="flex items-start justify-between">
-                <div className="flex items-center justify-center w-6 h-6 border border-border rounded text-white/60">
-                  {s.icon}
-                </div>
-                <span className="text-xs text-white/30">{s.num}</span>
-              </div>
-              <div className="flex flex-col gap-2">
-                <p className="font-display text-[16px]">{s.title}</p>
-                <p className="text-xs text-white/50 leading-relaxed">{s.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </FadeIn>
+      <ThreeDMarquee
+        images={CARDS}
+        className="border border-white/10"
+      />
     </section>
   );
 }

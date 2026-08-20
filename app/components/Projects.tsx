@@ -1,19 +1,8 @@
 import SDG from "./ui/SDG";
 import FadeIn from "@/app/components/animations/FadeIn";
-import ProjectCard from "./ProjectCard";
+import Project3DCard, { type FeaturedProject } from "./Project3DCard";
 import Link from "next/link";
 import { client } from "@/sanity/lib/client"; // Import Sanity client
-
-// Define the type matching what we fetch for the cards
-export interface FeaturedProject {
-  title: string;
-  slug: string;
-  status: "Live" | "Delivered" | "Ongoing";
-  category?: string[];
-  description?: string;
-  tags?: string[];
-  image?: string;
-}
 
 export default async function Projects() {
   // 1. Fetch only the first 3 projects from Sanity
@@ -31,7 +20,7 @@ export default async function Projects() {
     { next: { tags: ['caseStudy'] } });
 
   return (
-    <section id="work" className="bg-[#0D0D0D] text-white py-20 md:py-[104px] px-6 md:px-16 lg:px-[244px]">
+    <section id="work" className="bg-[#0D0D0D] text-white py-20 md:py-[104px] px-6 md:px-16 lg:px-[244px] ">
       <div className="max-w-[1400px] mx-auto flex flex-col gap-6">
 
         {/* Header */}
@@ -49,29 +38,25 @@ export default async function Projects() {
           </div>
         </FadeIn>
 
-        {/* Cards */}
+        {/* 3D Cards */}
         {featuredProjects.length > 0 && (
-          <FadeIn direction="up" delay={0.1}>
-            <ProjectCard project={featuredProjects[0]} caseStudy />
-          </FadeIn>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {featuredProjects.map((p, i) => (
+              <FadeIn key={p.slug || p.title} direction="up" delay={0.05 * i} className="h-full">
+                <Project3DCard project={p} />
+              </FadeIn>
+            ))}
+          </div>
         )}
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {featuredProjects.slice(1).map((p, i) => (
-            <FadeIn key={p.slug || p.title} direction="up" delay={0.1 + i * 0.08}>
-              <ProjectCard project={p} caseStudy />
-            </FadeIn>
-          ))}
-        </div>
 
         {/* CTA banner */}
         <FadeIn direction="up" delay={0.15}>
           <div className="relative overflow-hidden rounded-[12px] border border-border gradient-bg px-7 md:px-10 py-10 md:py-14 mt-10">
             <div className="flex flex-col gap-5 relative z-10">
-              <SDG title="Let's Work Together" className="bg-[#0E1911] border-none" />
+              <SDG title="Let&apos;s Work Together" className="bg-[#0E1911] border-none" />
 
               <div className="font-display leading-[0.95] tracking-[-0.04em]">
-                <h3 className="text-[32px] md:text-[52px] text-white">Let's Build Something</h3>
+                <h3 className="text-[32px] md:text-[52px] text-white">Let&apos;s Build Something</h3>
                 <span className="text-gradient-custom text-[32px] md:text-[52px]">Powerful Together</span>
               </div>
 
