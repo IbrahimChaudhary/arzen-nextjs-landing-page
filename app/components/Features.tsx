@@ -86,11 +86,11 @@ const CARDS = [
 
 export default function Features() {
   return (
-    <section id="services" className="bg-[#0d0d0d] text-white py-20 md:py-[104px] px-6 md:px-16 lg:px-[200px]">
+   
       <ThreeDMarquee
         images={CARDS}
-        className="border border-white/10"
+        className="border w-full  border-white/10"
       />
-    </section>
+    
   );
 }

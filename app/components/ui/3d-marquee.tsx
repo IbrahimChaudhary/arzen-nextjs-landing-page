@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 interface ThreeDMarqueeProps {
@@ -47,9 +47,9 @@ export const ThreeDMarquee = ({ images, className }: ThreeDMarqueeProps) => {
 
   return (
     <div
-      className={`mx-auto block h-[600px] overflow-hidden rounded-2xl max-sm:h-[500px] ${className ?? ""}`}
-      style={{ perspective: "1200px" }}
-    >
+  className={`mx-auto block w-full h-[600px] overflow-hidden rounded-2xl max-sm:h-[500px] ${className ?? ""}`}
+  style={{ perspective: "1200px" }}
+>
       <div className="flex size-full items-center justify-center">
         <div className="relative size-[1720px] shrink-0 scale-[0.4] sm:scale-[0.65] lg:scale-100">
           <div
@@ -77,7 +77,7 @@ export const ThreeDMarquee = ({ images, className }: ThreeDMarqueeProps) => {
                 className="relative aspect-[970/700] w-full overflow-hidden rounded-lg ring-1 ring-white/10"
                 key={imageIndex}
               >
-                <GridLineHorizontal className="-top-4" offset="20px" />
+               
                 <motion.div
                   whileHover={{ y: -10 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
