@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function ProjectCTA() {
   return (
-    <section className="mt-12 rounded-2xl border border-[#fdf2f2] bg-[#1A1A1A] px-6 py-20 text-center md:py-24">
+    <section className="mt-12 rounded-2xl border border-green-400 bg-[#1A1A1A] px-6 py-20 text-center md:py-24">
       <h2 className="font-display font-medium text-[26px]">
         Have a project in mind?
       </h2>
