@@ -8,8 +8,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: process.env.TITAN_EMAIL,
-    pass: process.env.TITAN_PASSWORD,
+    user: process.env.ZOHO_EMAIL,
+    pass: process.env.ZOHO_PASSWORD,
   },
   tls: {
     rejectUnauthorized: false,
