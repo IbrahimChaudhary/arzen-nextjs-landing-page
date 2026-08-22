@@ -49,8 +49,8 @@ export async function POST(request: Request) {
     // 4. Send an email notification to the Titan mailbox
     try {
       await transporter.sendMail({
-        from: `"${body.name ?? "Website Form"}" <smtp@dctcommunication.com>`,
-        to: "smtp@dctcommunication.com",
+        from: `"${body.name ?? "Website Form"}" <formsubmission@arzeninc.com>`,
+        to: "contactus@arzeninc.com",
         replyTo: body.email ? String(body.email) : undefined,
         subject: body.subject
           ? `New message from ${body.name ?? "visitor"}`
