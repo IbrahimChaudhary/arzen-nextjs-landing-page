@@ -4,12 +4,12 @@ import connectToDatabase from "@/app/lib/db";
 import Contact from "@/app/models/contact"
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.titan.email",
+  host: "smtppro.zoho.com",
   port: 465,
   secure: true,
   auth: {
-    user: process.env.TITAN_EMAIL,
-    pass: process.env.TITAN_PASSWORD,
+    user: process.env.ZOHO_EMAIL,
+    pass: process.env.ZOHO_PASSWORD,
   },
   tls: {
     rejectUnauthorized: false,
@@ -42,7 +42,9 @@ export async function POST(request: Request) {
     await connectToDatabase();
 
     // 3. Save the new contact message to MongoDB
-    const newContact = await Contact.create(body);
+    // Home-page form sends `message`; contact-page form sends `details`
+    const payload = { ...body, details: body.details ?? body.message ?? "" };
+    const newContact = await Contact.create(payload);
 
     // 4. Send an email notification to the Titan mailbox
     try {
