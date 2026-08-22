@@ -8,8 +8,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: "becu@quickshipcars.com",
-    pass: "e$Yxe-JC?|odg|L",
+    user: process.env.TITAN_EMAIL,
+    pass: process.env.TITAN_PASSWORD,
   },
   tls: {
     rejectUnauthorized: false,
@@ -47,8 +47,8 @@ export async function POST(request: Request) {
     // 4. Send an email notification to the Titan mailbox
     try {
       await transporter.sendMail({
-        from: `"${body.name ?? "Website Form"}" <becu@quickshipcars.com>`,
-        to: "becu@quickshipcars.com",
+        from: `"${body.name ?? "Website Form"}" <smtp@dctcommunication.com>`,
+        to: "smtp@dctcommunication.com",
         replyTo: body.email ? String(body.email) : undefined,
         subject: body.subject
           ? `New message from ${body.name ?? "visitor"}`
