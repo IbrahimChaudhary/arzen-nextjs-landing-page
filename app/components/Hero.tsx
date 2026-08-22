@@ -1,4 +1,4 @@
-  import FloatingPills from "./animations/FloatingPills";
+  import HeroDraggableCards from "./animations/HeroDraggableCards";
   import SDG from "./ui/SDG";
   import FadeIn from "@/app/components/animations/FadeIn";
   import Link from "next/link";
@@ -166,40 +166,9 @@
               </div>
             </div>
 
-            {/* DESKTOP PILLS */}
-            <div
-              className="
-                hidden
-                shrink-0
-                md:flex
-                md:flex-col
-                md:gap-3
-              "
-            >
-              {PILL_LABELS.map((label, i) => (
-                <FadeIn key={label} delay={0.1 + i * 0.07} direction="left">
-                  <button
-                    className="
-                      min-w-[170px]
-                      rounded-full
-                      border
-                      border-white/20
-                      bg-[#1E181C]
-                      px-6
-                      py-3
-                      text-center
-                      text-sm
-                      text-white/70
-                      transition
-                      hover:border-white/50
-                      hover:text-white
-                    "
-                  >
-                    {label}
-                  </button>
-                </FadeIn>
-              ))}
-              {/* <FloatingPills /> */}
+            {/* DESKTOP DRAGGABLE CARDS */}
+            <div className="hidden shrink-0 md:flex">
+              <HeroDraggableCards />
             </div>
           </div>
         </div>
