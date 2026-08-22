@@ -41,7 +41,7 @@ const ContactSchema = new Schema<IContact>({
   // Required because INITIAL state always sets a default service
   service: { 
     type: String, 
-    required: true 
+    required: false 
   },
   
   // Array of strings for the checkboxes

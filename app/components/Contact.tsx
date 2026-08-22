@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ChangeEvent } from "react";
+import { z } from "zod";
 import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
@@ -25,16 +26,79 @@ interface HomeFormState {
 
 const INITIAL: HomeFormState = { name: "", email: "", subject: "", message: "" };
 
+type FieldErrors = Partial<Record<keyof HomeFormState, string>>;
+
+const nameSchema = z
+  .string()
+  .trim()
+  .min(1, "Please enter your name.")
+  .min(2, "That name looks too short.")
+  .regex(
+    /^[a-zA-Z0-9\s'-]+$/,
+    "Name can only contain letters, numbers, spaces, apostrophes, and hyphens."
+  )
+  .refine((val) => /[a-zA-Z]/.test(val), {
+    message: "Name cannot be numbers only.",
+  });
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function validateHomeForm(data: HomeFormState): FieldErrors {
+  const errors: FieldErrors = {};
+
+  const nameResult = nameSchema.safeParse(data.name);
+  if (!nameResult.success) {
+    errors.name = nameResult.error.issues[0]?.message ?? "Invalid name.";
+  }
+
+  if (!data.email.trim()) errors.email = "Please enter your email.";
+  else if (!EMAIL_RE.test(data.email.trim()))
+    errors.email = "Please enter a valid email address."
+
+  if (!data.message.trim())
+    errors.message = "Please enter your message.";
+  else if (data.message.trim().length < 10)
+    errors.message = "Please add a bit more detail (at least 10 characters).";
+
+  return errors;
+}
+
 export default function Contact() {
   const [form, setForm] = useState<HomeFormState>(INITIAL);
   const [sending, setSending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState<FieldErrors>({});
+  const [touched, setTouched] = useState<Partial<Record<keyof HomeFormState, boolean>>>({});
+
+  const revalidate = (next: HomeFormState, key: keyof HomeFormState) => {
+    if (!touched[key]) return;
+    setErrors((prev) => ({ ...prev, [key]: validateHomeForm(next)[key] }));
+  };
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  ) => {
+    const key = e.target.name as keyof HomeFormState;
+    setForm((prev) => {
+      const next = { ...prev, [key]: e.target.value };
+      revalidate(next, key);
+      return next;
+    });
+  };
+
+  const handleBlur = (key: keyof HomeFormState) => {
+    setTouched((prev) => ({ ...prev, [key]: true }));
+    setErrors((prev) => ({ ...prev, [key]: validateHomeForm(form)[key] }));
+  };
 
   const handleSubmit = async () => {
+    const found = validateHomeForm(form);
+    setErrors(found);
+    if (Object.keys(found).length > 0) {
+      const first = Object.keys(found)[0];
+      document.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
+      return;
+    }
     setSending(true);
     try {
       const response = await fetch("/api/contact", {
@@ -99,8 +163,12 @@ export default function Contact() {
                 placeholder="Ali"
                 value={form.name}
                 onChange={handleChange}
+                onBlur={() => handleBlur("name")}
                 className={inputClass}
               />
+              {errors.name && (
+                <p className="mt-1 text-xs text-red-400">{errors.name}</p>
+              )}
             </div>
             <div className="flex-1 flex flex-col gap-1">
               <label className="text-xs text-white/50">Your Email</label>
@@ -110,8 +178,12 @@ export default function Contact() {
                 placeholder="hello@example.com"
                 value={form.email}
                 onChange={handleChange}
+                onBlur={() => handleBlur("email")}
                 className={inputClass}
               />
+              {errors.email && (
+                <p className="mt-1 text-xs text-red-400">{errors.email}</p>
+              )}
             </div>
           </div>
 
@@ -124,8 +196,12 @@ export default function Contact() {
               placeholder="Tell us what you need"
               value={form.subject}
               onChange={handleChange}
+              onBlur={() => handleBlur("subject")}
               className={inputClass}
             />
+            {errors.subject && (
+              <p className="mt-1 text-xs text-red-400">{errors.subject}</p>
+            )}
           </div>
 
           {/* Message */}
@@ -137,8 +213,12 @@ export default function Contact() {
               rows={6}
               value={form.message}
               onChange={handleChange}
+              onBlur={() => handleBlur("message")}
               className={`${inputClass} resize-none`}
             />
+            {errors.message && (
+              <p className="mt-1 text-xs text-red-400">{errors.message}</p>
+            )}
           </div>
 
           {submitted && (
