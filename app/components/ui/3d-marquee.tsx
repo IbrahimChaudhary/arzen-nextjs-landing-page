@@ -47,11 +47,11 @@ export const ThreeDMarquee = ({ images, className }: ThreeDMarqueeProps) => {
 
   return (
     <div
-  className={`mx-auto block w-full h-[600px] overflow-hidden rounded-2xl max-sm:h-[500px] ${className ?? ""}`}
+  className={`mx-auto block w-full h-[600px] overflow-hidden rounded-2xl max-sm:h-[480px] ${className ?? ""}`}
   style={{ perspective: "1200px" }}
 >
       <div className="flex size-full items-center justify-center">
-        <div className="relative size-[1720px] shrink-0 scale-[0.4] sm:scale-[0.65] lg:scale-100">
+        <div className="relative size-[1720px] shrink-0 max-sm:scale-[0.65] max-sm:-mt-[72px] sm:scale-[0.8] lg:scale-100">
           <div
             style={{
               transform: "translate(-50%, -50%) rotateX(55deg) rotateZ(-45deg)",
