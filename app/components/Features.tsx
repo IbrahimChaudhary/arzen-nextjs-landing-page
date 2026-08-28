@@ -37,7 +37,7 @@ type Service = (typeof SERVICES)[number];
 
 function ServiceCard({ service }: { service: Service }) {
   return (
-    <div className="flex h-full w-full flex-col gap-4 rounded-xl border border-white/10 bg-[#141414] p-6">
+    <div className="flex h-full w-full flex-col gap-4  border border-white/10 bg-[#141414] p-6">
       <div className="flex items-start justify-between">
         <div className="flex h-6 w-6 items-center justify-center rounded border border-border text-white/60">
           {service.icon}
@@ -89,7 +89,7 @@ export default function Features() {
    
       <ThreeDMarquee
         images={CARDS}
-        className="border w-full  border-white/10"
+        className=" w-full  border-white/10"
       />
     
   );
